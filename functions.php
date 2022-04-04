@@ -2,6 +2,7 @@
 
 function check_login($con)
 {
+	#makes sure the session is the same as when the user logged in and returns all variables from current row of database 
 
 	if(isset($_SESSION['userID']))
 	{
@@ -27,6 +28,8 @@ function check_login($con)
 function random_num($length)
 {
 
+	 #generate random number for userID
+	
 	$text = "";
 	if($length < 5)
 	{
