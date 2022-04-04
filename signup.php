@@ -15,8 +15,8 @@ session_start();
 		{
 
 			//save to database
-			$user_id = random_num(20);
-			$query = "insert into users (user_id,user_name,password) values ('$user_id','$user_name','$password')";
+			$userID = random_num(20);
+			$query = "insert into users (userId,user_name,password) values ('$userID','$user_name','$password')";
 
 			mysqli_query($con, $query);
 
@@ -38,6 +38,10 @@ session_start();
 <body>
 
 	<style type="text/css">
+
+	body {
+		background-image: url('https://us.123rf.com/450wm/arinashe/arinashe1904/arinashe190400323/123496911-genome-sequencing-pattern-in-bright-colors-background-in-doodle-style-dna-genome-scissors-test-tube-.jpg?ver=6');
+	}
 	
 	#text{
 
@@ -53,26 +57,30 @@ session_start();
 		padding: 10px;
 		width: 100px;
 		color: white;
-		background-color: Gray;
+		background-color: #000;
 		border: none;
 	}
 
 	#box{
 
-		background-color: DarkSalmon;
+		background-color: #F44336;
 		margin: auto;
 		width: 300px;
 		padding: 20px;
+		border-style: solid;
+		border-width: 5px;
+		border-color: #000;
 	}
 
 	</style>
-
+	<br><br><br><br><br><br>
 	<div id="box">
 		
 		<form method="post">
-			<div style="font-size: 20px;margin: 10px;color: white;">Signup</div>
-
+			<div style="font-size: 20px;color: white;">Signup</div> <br>
+			<div style= 'font-size: 15px; color: white;'>Username: </div>
 			<input id="text" type="text" name="user_name"><br><br>
+			<div style= 'font-size: 15px; color: white;'>Password: </div>
 			<input id="text" type="password" name="password"><br><br>
 
 			<input id="button" type="submit" value="Signup"><br><br>
