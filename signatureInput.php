@@ -14,12 +14,13 @@
         $institution = $_POST['institution'];
         $instType = $_POST['instType'];
         $country = $_POST['country'];
-        $designType = $_POST['designType'];
+        $designType1 = $_POST['designType1'];
+        $Sequence1 = $_POST['originalDNA'];
 
-        $sql = "UPDATE users SET firstName = '$firstName', lastName = '$lastName', institution = '$institution', instType = '$instType', country = '$country', designType = '$designType'  WHERE id = '$id'";
+        $sql = "UPDATE users SET firstName = '$firstName', lastName = '$lastName', institution = '$institution', instType = '$instType', country = '$country', designType1 = '$designType1', Sequence1 = '$Sequence1'  WHERE id = '$id'";
         mysqli_query($con,$sql);
 
-        header("Location: view.php");
+        header("Location: index.php");
 
         
     }
@@ -68,9 +69,9 @@
 <fieldset>
 <legend>Encryption Information:</legend>
 <p>
-  <input type="radio" id="design_rev" name="designType" value="reversible">
+  <input type="radio" id="design_rev" name="designType1" value="reversible">
   <label for="design_rev"> Reversible</label><br>
-  <input type="radio" id="design_irr" name="designType" value="irreversible">
+  <input type="radio" id="design_irr" name="designType1" value="irreversible">
   <label for="design_irr"> Irreversible</label><br>
   </fieldset>
 </p>

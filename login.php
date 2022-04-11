@@ -31,7 +31,8 @@ session_start();
 					{
 
 						$_SESSION['userID'] = $user_data['userID'];
-						header("Location: signatureInput.php");
+						$_SESSION['loggedIn'] = true;
+						header("Location: user_profile.php");
 						die;
 					}
 				}

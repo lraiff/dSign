@@ -25,6 +25,29 @@ function check_login($con)
 
 }
 
+function setData($con)
+{
+	#makes sure the session is the same as when the user logged in and returns all variables from current row of database 
+
+	if(isset($_SESSION['userID']))
+	{
+
+		$userID = $_SESSION['userID'];
+		$query = "select * from users where userID = '$userID' limit 1";
+
+		$result = mysqli_query($con,$query);
+		if($result && mysqli_num_rows($result) > 0)
+		{
+
+			$user_data = mysqli_fetch_assoc($result);
+			return $user_data;
+		}
+	}
+
+	
+
+}
+
 function random_num($length)
 {
 
