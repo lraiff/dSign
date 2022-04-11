@@ -1,0 +1,23 @@
+<?php
+
+    session_start();
+
+	include("connection.php");
+	include("functions.php");
+
+    $user_data = check_login($con);
+    $id = $user_data['id'];
+
+    $file = "signInfo.json";
+    $fileID = fopen($file, "x");
+
+    $input = array("first_name" => $user_data['firstName'],"last_name" => $user_data['lastName'], 'institution_type' => $user_data['instType'],'institution_code' => $user_data['institution'], 'password' => $user_data['password'], 'country' => $user_data['country']);
+
+    $jsonStr = json_encode($input, JSON_PRETTY_PRINT);
+
+    fwrite($fileID, $jsonStr);
+    fclose($fileID);
+
+    header("Location: user_profile.php");
+     
+?>
