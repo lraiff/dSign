@@ -18,6 +18,11 @@
     fwrite($fileID, $jsonStr);
     fclose($fileID);
 
+    $encryptSign = exec("C:\xampp\htdocs\dSign\dSign\dnasignencrypt.py");
+
+    $sql = "UPDATE users SET encryptedSignature = $encryptSign WHERE id = '$id'";
+    mysqli_query($con,$sql);
+
     header("Location: user_profile.php");
      
 ?>
