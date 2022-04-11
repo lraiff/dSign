@@ -3,7 +3,7 @@
 import json
 import numpy as np
 
-with open('path to json file/filename', 'r') as f:
+with open('C:\xampp\htdocs\dSign\signInfo.json', 'r') as f:
     inputs=json.load(f)
 
 class data_info:
@@ -24,10 +24,10 @@ class data_info:
 def combine_array( last_name, first_name, institution_type, institution_code, password, country):
     passarr= list(password)
     passarr.sort()
-    if institution_type == "University":
+    if institution_type == "Academia":
         insti_type= "UNI"
-    elif institution_type == "Research":
-        insti_type= "RSCH"
+    elif institution_type == "Industry":
+        insti_type= "IND"
 
     # make the data into an array 
     str= last_name + first_name + insti_type + institution_code + country 
