@@ -5,7 +5,8 @@ from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 
 import json 
-with open('C:/Users/aurel/OneDrive/Desktop ASUS/BE 552/Project Encryption/input_database.json', 'r') as f:
+fpath= 'C:/Users/aurel/OneDrive/Desktop ASUS/BE 552/Project Encryption/'
+with open(fpath+'/input_database.json', 'r') as f:
     inputs=json.load(f)
 
 sequence_number = bytes(inputs[0]["file_id_list"][0]["ID"], 'utf-8')

@@ -1,9 +1,7 @@
 [
     {
-        "database": "profile_input",
         "username": "alb68",
-        "password": "thedogisapet17",
-        "user_id": "5789879873647229172637",
+        "password": "thedogis17",
         "last_name": "Leona", 
         "first_name":"Aurelia", 
         "institution_type": "University", 
@@ -14,48 +12,32 @@
         "doi": "19283687",
         "file_id_list":[
             {
-            "name": "promcoviddetection", 
+            "ID": "1", 
             "sequence": [
-            "        1 gcttGATAAG TCCCTAACTT TTACAGCTAG CTCAGTCCTA GGTATTATGC TAGCCTGAAG",
-            "       61 CTGTCACCGG ATGTGCTTTC CGGTCTGATG AGTCCGTGAG GACGAAACAG CCTCTACAAA",
-            "      121 TAATTTTGTT TAATACTAGA GAAAGAGGGG AAATACTAGA TGGTGAGCAA GGGCGAGGAG",
-            "      181 CTGTTCACCG GGGTGGTGCC CATCCTGGTC GAGCTGGACG GCGACGTAAA CGGCCACAAG",
-            "      241 TTCAGCGTGT CCGGCGAGGG CGAGGGCGAT GCCACCTACG GCAAGCTGAC CCTGAAGTTC",
-            "      301 ATCTGCACCA CAGGCAAGCT GCCCGTGCCC TGGCCCACCC TCGTGACCAC CTTCGGCTAC",
-            "      361 GGCCTGCAAT GCTTCGCCCG CTACCCCGAC CACATGAAGC TGCACGACTT CTTCAAGTCC",
-            "      421 GCCATGCCCG AAGGCTACGT CCAGGAGCGC ACCATCTTCT TCAAGGACGA CGGCAACTAC",
-            "      481 AAGACCCGCG CCGAGGTGAA GTTCGAGGGC GACACCCTGG TGAACCGCAT CGAGCTGAAG",
-            "      541 GGCATCGACT TCAAGGAGGA CGGCAACATC CTGGGGCACA AGCTGGAGTA CAACTACAAC",
-            "      601 AGCCACAACG TCTATATCAT GGCCGACAAG CAGAAGAACG GCATCAAGGT GAACTTCAAG",
-            "      661 ATCCGCCACA ACATCGAGGA CGGCAGCGTG CAGCTCGCCG ACCACTACCA GCAGAACACC",
-            "      721 CCAATCGGCG ACGGCCCCGT GCTGCTGCCC GACAACCACT ACCTTAGCTA CCAGTCCGCC",
-            "      781 CTGAGCAAAG ACCCCAACGA GAAGCGCGAT CACATGGTCC TGCTGGAGTT CGTGACCGCC",
-            "      841 GCCGGGATCA CTCTCGGCAT GGACGAGCTG TACAAGTAAC TCGGTACCAA ATTCCAGAAA",
-            "      901 AGAGGCCTCC CGAAAGGGGG GCCTTTTTTC GTTTTGGTCC AGGTGCTTCC TCGCTCACTG",
-            "      961 ACTCGCTGCA CGAGGCAGAC CTCAGCGCTA GCGGAGTGTA TACTGGCTTA CTATGTTGGC",
-            "     1021 ACTGATGAGG GTGTCAGTGA AGTGCTTCAT GTGGCAGGAG AAAAAAGGCT GCACCGGTGC",
-            "     1081 GTCAGCAGAA TATGTGATAC AGGATATATT CCGCTTCCTC GCTCACTGAC TCGCTACGCT",
-            "     1141 CGGTCGTTCG ACTGCGGCGA GCGGAAATGG CTTACGAACG GGGCGGAGAT TTCCTGGAAG",
-            "     1201 ATGCCAGGAA GATACTTAAC AGGGAAGTGA GAGGGCCGCG GCAAAGCCGT TTTTCCATAG",
-            "     1261 GCTCCGCCCC CCTGACAAGC ATCACGAAAT CTGACGCTCA AATCAGTGGT GGCGAAACCC",
-            "     1321 GACAGGACTA TAAAGATACC AGGCGTTTCC CCTGGCGGCT"
+            "gcttGATAAG TCCCTAACTT TTACAGCTAG CTCAGTCCTA GGTATTATGC TAGCCTGAAG",
+            "CTGTCACCGG ATGTGCTTTC CGGTCTGATG AGTCCGTGAG GACGAAACAG CCTCTACAAA",
+            "TAATTTTGTT TAATACTAGA GAAAGAGGGG AAATACTAGA TGGTGAGCAA GGGCGAGGAG",
+            "CTGTTCACCG GGGTGGTGCC CATCCTGGTC GAGCTGGACG GCGACGTAAA CGGCCACAAG",
+            "TTCAGCGTGT CCGGCGAGGG CGAGGGCGAT GCCACCTACG GCAAGCTGAC CCTGAAGTTC",
+            "ATCTGCACCA CAGGCAAGCT GCCCGTGCCC TGGCCCACCC TCGTGACCAC CTTCGGCTAC",
+            "GGCCTGCAAT GCTTCGCCCG CTACCCCGAC CACATGAAGC TGCACGACTT CTTCAAGTCC",
+            "GCCATGCCCG AAGGCTACGT CCAGGAGCGC ACCATCTTCT TCAAGGACGA CGGCAACTAC",
+            "AAGACCCGCG CCGAGGTGAA GTTCGAGGGC GACACCCTGG TGAACCGCAT CGAGCTGAAG",
+            "GGCATCGACT TCAAGGAGGA CGGCAACATC CTGGGGCACA AGCTGGAGTA CAACTACAAC",
+            "AGCCACAACG TCTATATCAT GGCCGACAAG CAGAAGAACG GCATCAAGGT GAACTTCAAG",
+            "ATCCGCCACA ACATCGAGGA CGGCAGCGTG CAGCTCGCCG ACCACTACCA GCAGAACACC",
+            "GACAGGACTA TAAAGATACC AGGCGTTTCC CCTGGCGGCT"
             ], 
-                "description": "This sequence is a synthesized bioluminescence biosensor that helps with covid detection", 
-                "details":{
-                "unique_aspect":"promoter is able to bind to specific mutation strand"
-                }
+            "description": "This sequence is a synthesized bioluminescence biosensor that helps with covid detection", 
+            "details":{
+            "unique_aspect":"promoter is able to bind to specific mutation strand"
+            }, 
+            "signature": {
+                "state": "reversible",
+                "location": "-",
+                "//if state is non-reversible":  "add a location data"
+            }
             }
         ]
-    }, 
-    {
-        "database": "reversible_signature",
-        "file_id": "promcoviddetection"
-     
-    },  
-    {
-        "database": "nonreversible_signature",
-        "file_id": "promcoviddetection",
-        "location_bp": "37"
     }
-
 ]
