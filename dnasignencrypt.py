@@ -3,21 +3,21 @@
 import json
 import numpy as np
 
-with open('C:\xampp\htdocs\dSign\signInfo.json', 'r') as f:
+with open('C:\\xampp\\htdocs\\dSign\\signInfo.json', 'r') as f:
     inputs=json.load(f)
 
 class data_info:
     def __init__(self, fpath = None):
-        self.username= inputs[0]["username"]
-        self.last_name= inputs[0]["last_name"]
-        self.first_name= inputs[0]["first_name"]
-        self.institution_type= inputs[0]["institution_type"]
-        self.institution_code= inputs[0]["institution_code"]
-        self.password= inputs[0]["password"]
-        self.user_id =inputs[0]["user_id"]
-        self.doi= inputs[0]["doi"]
-        self.fileid= inputs[0]["file_id_list"][0]["ID"]
-        self.country= inputs[0]["country"]
+        #self.username= inputs[0]["username"]
+        self.first_name= inputs["first_name"]
+        self.last_name= inputs["last_name"]
+        self.institution_type= inputs["institution_type"]
+        self.institution_code= inputs["institution_code"]
+        self.password= inputs["password"]
+        #self.user_id =inputs[0]["user_id"]
+        #self.doi= inputs[0]["doi"]
+        #self.fileid= inputs[0]["file_id_list"][0]["ID"]
+        self.country= inputs["country"]
 
 
 
@@ -82,9 +82,9 @@ def signcode(password, finalarr):
 
 
 
-test = data_info('filepathstring')
+#test = data_info('filepathstring')
 pdata = data_info()
 final=combine_array( pdata.last_name, pdata.first_name, pdata.institution_type, pdata.institution_code, pdata.password, pdata.country)
-print(final)
 DNA,code= signcode(pdata.password, final)
+print(DNA)
 #you can save the data and the code into a database! 

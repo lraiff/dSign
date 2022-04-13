@@ -9,7 +9,13 @@
     $id = $user_data['id'];
 
     $file = "signInfo.json";
-    $fileID = fopen($file, "x");
+    if (file_exists($file)) {
+        unlink($file);
+        $fileID = fopen($file, "x");
+    }
+    else {
+        $fileID = fopen($file, "x");
+    }
 
     $input = array("first_name" => $user_data['firstName'],"last_name" => $user_data['lastName'], 'institution_type' => $user_data['instType'],'institution_code' => $user_data['institution'], 'password' => $user_data['password'], 'country' => $user_data['country']);
 
@@ -18,9 +24,10 @@
     fwrite($fileID, $jsonStr);
     fclose($fileID);
 
-    $encryptSign = exec("C:\xampp\htdocs\dSign\dSign\dnasignencrypt.py");
+    $output = exec('dnasignencrypt.py', $encryptSign);
+    print_r($encryptSign);
 
-    $sql = "UPDATE users SET encryptedSignature = $encryptSign WHERE id = '$id'";
+    $sql = "UPDATE users SET encryptedSignature = '$encryptSign[0]' WHERE id = '$id'";
     mysqli_query($con,$sql);
 
     header("Location: user_profile.php");
