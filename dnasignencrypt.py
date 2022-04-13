@@ -9,7 +9,7 @@ with open(fpath+'/input_database.json', 'r') as f:
     inputs=json.load(f)
 
 class data_info:
-    def __init__(self, fpath = None):
+    def __init__(self, fpath = None ):
         self.username= inputs[0]["username"]
         self.last_name= inputs[0]["last_name"]
         self.first_name= inputs[0]["first_name"]
@@ -82,60 +82,8 @@ def signcode(password, finalarr):
 
     return DNAsequence, completecode
 
-def jsontostringDNA(DNA): 
-    strDNA= ''.join([str(item) for item in DNA])
-    strDNA= strDNA.replace(" ","")
-    return strDNA
-
-
-def reversibleplacing( DNA, signature):
-    num=[]
-    stringDNA= jsontostringDNA(DNA)
-    M= len(stringDNA)
-    N= len(signature)
-    final= list(stringDNA)
-    for i in range(0,N-1):
-        num.append(int(random.randint(1,M)))
-        while num[i] in num[0: i-1]:
-            num.remove(num[i])
-            num.append(int(random.randint(1,M)))
-            if num[i] not in num[0: i-1]: 
-                break
-        final.insert(num[i], signature[i])
-        M += 1
-    final="".join(final)
-    return final, num 
-
-def nonreversibleplacing( DNA, signature, location):
-    stringDNA= jsontostringDNA(DNA)
-    CodedDNA= stringDNA[:location] + signature + stringDNA[location:]
-
-    return CodedDNA, location
-
-def DNAformatting(sequence):
-    split_strings=[]
-    for index in range(0, len(sequence), 10):
-            split_strings.append(sequence[index : index + 10])
-    split_strings=" ".join(split_strings)
-    data= wrap(split_strings, 65)
-    return data 
-    
-
-pdata = data_info()
+## below is a sample on how to call the function 
+pdata = data_info(fpath + '/input_database.json')
 final=combine_array( pdata.last_name, pdata.first_name, pdata.institution_type, pdata.institution_code, pdata.password, pdata.country)
 signatureinDNA,code= signcode(pdata.password, final)
 #you can save the data and the code into a database! 
-if pdata.signstate == "non-reversible": 
-    CodedDNA, locations= nonreversibleplacing( pdata.DNAsequence, signatureinDNA, pdata.signlocation)
-    print(CodedDNA)
-    print(locations)
-elif pdata.signstate == "reversible": 
-    CodedDNA, locations= reversibleplacing( pdata.DNAsequence, signatureinDNA)
-    print(CodedDNA)
-    print(locations)
-
-Dict = {"Coded_Sequence": DNAformatting(CodedDNA), "signature": signatureinDNA,"locations":locations}
-
-
-json_object= json.dumps(Dict, indent=4)
-open(fpath + '/signandcode.json', 'w').write(json_object)
