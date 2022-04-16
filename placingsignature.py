@@ -23,7 +23,9 @@ def jsontostringDNA(DNA):
 
 def reversibleplacing( DNA, signature):
     num=[]
+    primer = "AAGCTT"
     stringDNA= jsontostringDNA(DNA)
+    signature= primer + signature
     M= len(stringDNA)
     N= len(signature)
     final= list(stringDNA)
