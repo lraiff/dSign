@@ -57,9 +57,12 @@ def DNAformatting(sequence):
 
 
 ## below is a sample on how to call the function 
+# please input the string of the signature because this code is separated from the generating signature code
+# you can take it from the database? 
 pdata = data_info(fpath + '/input_database.json')
 if pdata.signstate == "non-reversible": 
     CodedDNA, locations= nonreversibleplacing( pdata.DNAsequence, signatureinDNA, pdata.signlocation)
 elif pdata.signstate == "reversible": 
     CodedDNA, locations= reversibleplacing( pdata.DNAsequence, signatureinDNA)
+
 

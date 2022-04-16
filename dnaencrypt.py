@@ -14,7 +14,7 @@ def genkeyandencrypt():
     password= bytes(inputs[0]["password"], 'utf-8')
     salt = os.urandom(16)
     kdf = PBKDF2HMAC(
-        algorithm=hashes.SHA256(),
+        algorithm=hashes.SHA256(),\
         length=32,
         salt=salt,
         iterations=390000,
