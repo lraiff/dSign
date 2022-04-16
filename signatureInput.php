@@ -39,6 +39,12 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
+        p1 {
+            margin-left: 40px
+        }
+        p2 {
+            margin-left: 56px
+        }
     body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
     .fa-anchor,.fa-coffee {font-size:200px}
@@ -88,18 +94,18 @@
 </p>
 </fieldset>
 
-<p>
+<p1>
 <fieldset>
-  <legend><strong>Location Information:  </strong></legend>
+  <legend><strong>Location Information: </strong></legend>
   <input type="radio" id="academia" name="instType" value="Academia">
   <label for="academia"> Academia/University</label>
-  <a href="https://finaid.org/fafsa/tiv/">      Click here to find your School Code </a> <br>
+  <p1><a href="https://finaid.org/fafsa/tiv/"> Click here to find your School Code </a> <br></p1>
   <input type="radio" id="industry" name="instType" value="Industry">
   <label for="industry"> Industry/Company</label>
-  <a href="https://stocks.tradingcharts.com/stocks/symbols/s">       Click here to find Nasdaq Code </a><br>
+  <p2><a href="https://stocks.tradingcharts.com/stocks/symbols/s">Click here to find Nasdaq Code </a><br></p2><br>
   
   <label for="institu">Code for Institute Name:</label><br>
-  <input type="text" id="institu" name="institution" required="yes" maxlength="10"><br>
+  <input type="text" id="institu" name="institution" required="yes" maxlength="10"><br><br>
   
   <label for="country">Country:</label><br>
   <select id="country" name="country">
@@ -108,27 +114,14 @@
   <option value="MEX">Mexico</option>
   <option value="OTHER">Other</option>
   </select>
+  <br>
+  <br>
 </fieldset>
-</p>
-
-<fieldset>
-<legend><strong>Encryption Information:  </strong></legend>
-<p>
-  <input type="radio" id="design_rev" name="designType1" value="reversible">
-  <label for="design_rev"> Reversible</label><br>
-  <input type="radio" id="design_irr" name="designType1" value="irreversible">
-  <label for="design_irr"> Irreversible</label><br>
-  </fieldset>
-</p>
-
-<p>
-    Enter your sequence below (no spaces):<br>
-    <textarea name="originalDNA" rows="15" cols="60" required="yes"></textarea><br>
-</p>
+</p1>
 
 <p>
     <p>
-    <input type="submit" value="Submit">
+    <button class="w3-button w3-black w3-padding-large w3-small w3-margin-top">Submit</button>
     </p>
 </p>
 </form>
