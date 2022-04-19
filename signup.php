@@ -82,7 +82,7 @@ session_start();
 			<div style="font-size: 20px;color: white;">Signup</div> <br>
 			<div style= 'font-size: 15px; color: white;'>Username: </div>
 			<input id="text" type="text" name="user_name"><br><br>
-			<div style= 'font-size: 15px; color: white;'>Password: </div>
+			<div style= 'font-size: 15px; color: white;'>Password (Exactly 10 characters long): </div>
 			<input id="text" type="password" name="password"><br><br>
 
 			<input id="button" type="submit" value="Signup"><br><br>

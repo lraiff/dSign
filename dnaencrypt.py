@@ -5,13 +5,13 @@ from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 
 import json 
-fpath= 'C:/Users/aurel/OneDrive/Desktop ASUS/BE 552/Project Encryption/'
-with open(fpath+'/input_database.json', 'r') as f:
+fpath= 'C:\\xampp\\htdocs\\dSign'
+with open(fpath+'/shareSeq.json', 'r') as f:
     inputs=json.load(f)
     
 # Generating the key and writing it to a file
 def genkeyandencrypt():
-    password= bytes(inputs[0]["password"], 'utf-8')
+    password= bytes(inputs["password"], 'utf-8')
     salt = os.urandom(16)
     kdf = PBKDF2HMAC(
         algorithm=hashes.SHA256(),\
@@ -21,7 +21,7 @@ def genkeyandencrypt():
     )
     public_key = base64.urlsafe_b64encode(kdf.derive(password))
     key= Fernet(public_key)
-    message= "This sequence was made by " + inputs[0]["last_name"] + ", " + inputs[0]["first_name"] + " (" + inputs[0]["email"] + ") from " +  inputs[0]["institution_code"] + "\n" + inputs[0]["file_id_list"][0]["description"]
+    message= "This sequence was made by " + inputs["last_name"] + ", " + inputs["first_name"] + " (" + inputs["email"] + ") from " +  inputs["institution_code"] + inputs["Type"] + "\n" + inputs["description"]
     #you can change the messages if you want by changing the name of the messages which is taken from the json file
     token = key.encrypt(bytes(message, 'utf-8'))
     #outputs the .key files

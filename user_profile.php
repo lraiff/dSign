@@ -13,12 +13,39 @@ session_start();
 
     #the send button writes to a file that will hold the guest access key
     #the export button writes to a file with all the sequence information that the user wants to themselves
-    #the delete button deletes all teh information corresponding to that sequence
+    #the delete button deletes all the information corresponding to that sequence from the database
+
+    #each sequence has a set of if statements that execute depending if the user selected the send, export, or delete button
 
     #sequence1
     if(isset($_POST['send1'])) {
 
+      if($user_data['instType'] == "Academia") {
+        $input = array("password" => $user_data['password'], "last_name" => $user_data['lastName'], "first_name" => $user_data['firstName'], "email" => $user_data['email'], "institution_code" => $user_data['institution'], "Type" => "Title IV Institution Code", "description" => $user_data['seqDesc1']);
+        
+      }
+      else {
+        $input = array("password" => $user_data['password'], "last_name" => $user_data['lastName'], "first_name" => $user_data['firstName'], "email" => $user_data['email'], "institution_code" => $user_data['institution'], "Type" => "Nasdaq Code", "description" => $user_data['seqDesc1']);
+      }
+
+      #create a json file for sharing
+      $fileSH = "shareSeq.json";
+      if (file_exists($fileSH)) {
+          unlink($fileSH);
+          $fileIDSH = fopen($fileSH, "x");
+      }
+      else {
+          $fileIDSH = fopen($fileSH, "x");
     }
+
+      $jsonStr = json_encode($input, JSON_PRETTY_PRINT);
+
+      fwrite($fileIDSH, $jsonStr);
+      fclose($fileIDSH);
+      exec('dnaencrypt.py');
+      header("Location: user_profile.php");
+    }
+
     if(isset($_POST['export1'])) {
       if($user_data['designType1'] == 'Irreversible') {
         $input = array("Name" => $user_data['seqName1'], "Description" => $user_data['seqDesc1'], "Sequence" => $user_data['Sequence1'], "Signature" => $user_data['encryptedSignature'], "Signature location" => $user_data['location1'], "Encrypted Sequence" => $user_data['eSeq1'], "Instructions" => "For manufacturing purposes only");
@@ -52,6 +79,30 @@ session_start();
 
     #sequence2
     if(isset($_POST['send2'])) {
+      if($user_data['instType'] == "Academia") {
+        $input = array("password" => $user_data['password'], "last_name" => $user_data['lastName'], "first_name" => $user_data['firstName'], "email" => $user_data['email'], "institution_code" => $user_data['institution'], "Type" => "Title IV Institution Code", "description" => $user_data['seqDesc2']);
+        
+      }
+      else {
+        $input = array("password" => $user_data['password'], "last_name" => $user_data['lastName'], "first_name" => $user_data['firstName'], "email" => $user_data['email'], "institution_code" => $user_data['institution'], "Type" => "Nasdaq Code", "description" => $user_data['seqDesc2']);
+      }
+
+      #create a json file for sharing
+      $fileSH = "shareSeq.json";
+      if (file_exists($fileSH)) {
+          unlink($fileSH);
+          $fileIDSH = fopen($fileSH, "x");
+      }
+      else {
+          $fileIDSH = fopen($fileSH, "x");
+    }
+
+      $jsonStr = json_encode($input, JSON_PRETTY_PRINT);
+
+      fwrite($fileIDSH, $jsonStr);
+      fclose($fileIDSH);
+      exec('dnaencrypt.py');
+      header("Location: user_profile.php");
 
     }
     if(isset($_POST['export2'])) {
@@ -87,6 +138,30 @@ session_start();
 
     #sequence3
     if(isset($_POST['send3'])) {
+      if($user_data['instType'] == "Academia") {
+        $input = array("password" => $user_data['password'], "last_name" => $user_data['lastName'], "first_name" => $user_data['firstName'], "email" => $user_data['email'], "institution_code" => $user_data['institution'], "Type" => "Title IV Institution Code", "description" => $user_data['seqDesc3']);
+        
+      }
+      else {
+        $input = array("password" => $user_data['password'], "last_name" => $user_data['lastName'], "first_name" => $user_data['firstName'], "email" => $user_data['email'], "institution_code" => $user_data['institution'], "Type" => "Nasdaq Code", "description" => $user_data['seqDesc3']);
+      }
+
+      #create a json file for sharing
+      $fileSH = "shareSeq.json";
+      if (file_exists($fileSH)) {
+          unlink($fileSH);
+          $fileIDSH = fopen($fileSH, "x");
+      }
+      else {
+          $fileIDSH = fopen($fileSH, "x");
+    }
+
+      $jsonStr = json_encode($input, JSON_PRETTY_PRINT);
+
+      fwrite($fileIDSH, $jsonStr);
+      fclose($fileIDSH);
+      exec('dnaencrypt.py');
+      header("Location: user_profile.php");
 
 
     }
@@ -122,6 +197,30 @@ session_start();
 
     #sequence4
     if(isset($_POST['send4'])) {
+      if($user_data['instType'] == "Academia") {
+        $input = array("password" => $user_data['password'], "last_name" => $user_data['lastName'], "first_name" => $user_data['firstName'], "email" => $user_data['email'], "institution_code" => $user_data['institution'], "Type" => "Title IV Institution Code", "description" => $user_data['seqDesc4']);
+        
+      }
+      else {
+        $input = array("password" => $user_data['password'], "last_name" => $user_data['lastName'], "first_name" => $user_data['firstName'], "email" => $user_data['email'], "institution_code" => $user_data['institution'], "Type" => "Nasdaq Code", "description" => $user_data['seqDesc4']);
+      }
+
+      #create a json file for sharing
+      $fileSH = "shareSeq.json";
+      if (file_exists($fileSH)) {
+          unlink($fileSH);
+          $fileIDSH = fopen($fileSH, "x");
+      }
+      else {
+          $fileIDSH = fopen($fileSH, "x");
+    }
+
+      $jsonStr = json_encode($input, JSON_PRETTY_PRINT);
+
+      fwrite($fileIDSH, $jsonStr);
+      fclose($fileIDSH);
+      exec('dnaencrypt.py');
+      header("Location: user_profile.php");
 
 
     }
@@ -157,6 +256,30 @@ session_start();
 
     #sequence 5
     if(isset($_POST['send5'])) {
+      if($user_data['instType'] == "Academia") {
+        $input = array("password" => $user_data['password'], "last_name" => $user_data['lastName'], "first_name" => $user_data['firstName'], "email" => $user_data['email'], "institution_code" => $user_data['institution'], "Type" => "Title IV Institution Code", "description" => $user_data['seqDesc5']);
+        
+      }
+      else {
+        $input = array("password" => $user_data['password'], "last_name" => $user_data['lastName'], "first_name" => $user_data['firstName'], "email" => $user_data['email'], "institution_code" => $user_data['institution'], "Type" => "Nasdaq Code", "description" => $user_data['seqDesc5']);
+      }
+
+      #create a json file for sharing
+      $fileSH = "shareSeq.json";
+      if (file_exists($fileSH)) {
+          unlink($fileSH);
+          $fileIDSH = fopen($fileSH, "x");
+      }
+      else {
+          $fileIDSH = fopen($fileSH, "x");
+    }
+
+      $jsonStr = json_encode($input, JSON_PRETTY_PRINT);
+
+      fwrite($fileIDSH, $jsonStr);
+      fclose($fileIDSH);
+      exec('dnaencrypt.py');
+      header("Location: user_profile.php");
 
     }
     if(isset($_POST['export5'])) {
