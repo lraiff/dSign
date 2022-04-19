@@ -1,21 +1,159 @@
 <?php 
 session_start();
 
-#this is the user profile page 
-#once logged in users can view, add, or edit sequences they entered
-#this is the only page where you can access the sequence input
-
 	include("connection.php");
 	include("functions.php");
 
 	$user_data = check_login($con); 
   $id = $user_data['id']; 
 
+
   
   if($_SERVER['REQUEST_METHOD'] == "POST") {
 
+    if(isset($_POST['send1'])) {
 
-    header("Location: sequence_input.php");
+    }
+    if(isset($_POST['export1'])) {
+      if($user_data['designType1'] == 'Irreversible') {
+        $input = array("Name" => $user_data['seqName1'], "Description" => $user_data['seqDesc1'], "Sequence" => $user_data['Sequence1'], "Signature" => $user_data['encryptedSignature'], "Signature location" => $user_data['location1'], "Encrypted Sequence" => $user_data['eSeq1'], "Instructions" => "For manufacturing purposes only");
+        }
+        else {
+          $input = array("Name" => $user_data['seqName1'], "Description" => $user_data['seqDesc1'], "Sequence" => $user_data['Sequence1'], "Signature" => $user_data['encryptedSignature'], "Encrypted Sequence" => $user_data['eSeq1'], "Instructions" => "For computational purposes only");
+        }
+
+      #create a json file for exporting
+      $fileEX = "seq1.json";
+      if (file_exists($fileEX)) {
+          unlink($fileEX);
+          $fileIDEX = fopen($fileEX, "x");
+      }
+      else {
+          $fileIDEX = fopen($fileEX, "x");
+      }
+
+      $jsonStr = json_encode($input, JSON_PRETTY_PRINT);
+
+      fwrite($fileIDEX, $jsonStr);
+      fclose($fileIDEX);
+      header("Location: user_profile.php");
+
+
+  
+    }
+    if(isset($_POST['send2'])) {
+
+    }
+    if(isset($_POST['export2'])) {
+      if($user_data['designType2'] == 'Irreversible') {
+        $input = array("Name" => $user_data['seqName2'], "Description" => $user_data['seqDesc2'], "Sequence" => $user_data['Sequence2'], "Signature" => $user_data['encryptedSignature'], "Signature location" => $user_data['location2'], "Encrypted Sequence" => $user_data['eSeq2'], "Instructions" => "For manufacturing purposes only");
+        }
+      else {
+          $input = array("Name" => $user_data['seqName2'], "Description" => $user_data['seqDesc2'], "Sequence" => $user_data['Sequence2'], "Signature" => $user_data['encryptedSignature'], "Encrypted Sequence" => $user_data['eSeq2'], "Instructions" => "For computational purposes only");
+      }
+      #create a json file for exporting
+      $fileEX = "seq2.json";
+      if (file_exists($fileEX)) {
+          unlink($fileEX);
+          $fileIDEX = fopen($fileEX, "x");
+      }
+      else {
+          $fileIDEX = fopen($fileEX, "x");
+      }
+
+      $jsonStr = json_encode($input, JSON_PRETTY_PRINT);
+
+      fwrite($fileIDEX, $jsonStr);
+      fclose($fileIDEX);
+      header("Location: user_profile.php");      
+     
+    }
+    if(isset($_POST['send3'])) {
+
+
+    }
+    if(isset($_POST['export3'])) {
+      if($user_data['designType3'] == 'Irreversible') {
+        $input = array("Name" => $user_data['seqName3'], "Description" => $user_data['seqDesc1'], "Sequence" => $user_data['Sequence3'], "Signature" => $user_data['encryptedSignature'], "Signature location" => $user_data['location3'], "Encrypted Sequence" => $user_data['eSeq3'], "Instructions" => "For manufacturing purposes only");
+        }
+      else {
+          $input = array("Name" => $user_data['seqName3'], "Description" => $user_data['seqDesc3'], "Sequence" => $user_data['Sequence3'], "Signature" => $user_data['encryptedSignature'], "Encrypted Sequence" => $user_data['eSeq3'], "Instructions" => "For computational purposes only");
+      }
+      #create a json file for exporting
+      $fileEX = "seq3.json";
+      if (file_exists($fileEX)) {
+          unlink($fileEX);
+          $fileIDEX = fopen($fileEX, "x");
+      }
+      else {
+          $fileIDEX = fopen($fileEX, "x");
+      }
+
+      $jsonStr = json_encode($input, JSON_PRETTY_PRINT);
+
+      fwrite($fileIDEX, $jsonStr);
+      fclose($fileIDEX); 
+      header("Location: user_profile.php");  
+    }
+    if(isset($_POST['send4'])) {
+
+
+    }
+    if(isset($_POST['export4'])) {
+      if($user_data['designType4'] == 'Irreversible') {
+        $input = array("Name" => $user_data['seqName4'], "Description" => $user_data['seqDesc4'], "Sequence" => $user_data['Sequence4'], "Signature" => $user_data['encryptedSignature'], "Signature location" => $user_data['location4'], "Encrypted Sequence" => $user_data['eSeq4'], "Instructions" => "For manufacturing purposes only");
+        }
+      else {
+          $input = array("Name" => $user_data['seqName4'], "Description" => $user_data['seqDesc4'], "Sequence" => $user_data['Sequence4'], "Signature" => $user_data['encryptedSignature'], "Encrypted Sequence" => $user_data['eSeq4'], "Instructions" => "For computational purposes only");
+      }
+      #create a json file for exporting
+      $fileEX = "seq4.json";
+      if (file_exists($fileEX)) {
+          unlink($fileEX);
+          $fileIDEX = fopen($fileEX, "x");
+      }
+      else {
+          $fileIDEX = fopen($fileEX, "x");
+      }
+
+      $jsonStr = json_encode($input, JSON_PRETTY_PRINT);
+
+      fwrite($fileIDEX, $jsonStr);
+      fclose($fileIDEX);
+      header("Location: user_profile.php");
+    }
+    if(isset($_POST['send5'])) {
+
+    }
+    if(isset($_POST['export5'])) {
+      if($user_data['designType5'] == 'Irreversible') {
+        $input = array("Name" => $user_data['seqName5'], "Description" => $user_data['seqDesc5'], "Sequence" => $user_data['Sequence5'], "Signature" => $user_data['encryptedSignature'], "Signature location" => $user_data['location5'], "Encrypted Sequence" => $user_data['eSeq5'], "Instructions" => "For manufacturing purposes only");
+        }
+      else {
+          $input = array("Name" => $user_data['seqName5'], "Description" => $user_data['seqDesc5'], "Sequence" => $user_data['Sequence5'], "Signature" => $user_data['encryptedSignature'], "Encrypted Sequence" => $user_data['eSeq5'], "Instructions" => "For computational purposes only");
+      }
+      #create a json file for exporting
+      $fileEX = "seq5.json";
+      if (file_exists($fileEX)) {
+          unlink($fileEX);
+          $fileIDEX = fopen($fileEX, "x");
+      }
+      else {
+          $fileIDEX = fopen($fileEX, "x");
+      }
+
+      $jsonStr = json_encode($input, JSON_PRETTY_PRINT);
+
+      fwrite($fileIDEX, $jsonStr);
+      fclose($fileIDEX);
+      header("Location: user_profile.php");
+
+    }
+
+    if(isset($_POST['seq3'])) {
+
+      header("Location: sequence_input.php");
+    }
 
         
     }
@@ -60,7 +198,7 @@ session_start();
 </div>
 
 <!-- Header -->
-<form method="POST">
+<form method = "POST">
 <header class="w3-container w3-red w3-center" style="padding:42px 16px">
   <p class="w3-xxlarge">Your Profile</p>
   <hr>
@@ -70,6 +208,7 @@ session_start();
   <input type = "submit" class="w3-button w3-black w3-padding-large w3-small w3-margin-top" name = 'seq3' value = "Add/Change Sequence Here">
 </header>
 <br>
+
 
 <!-- First Grid -->
 <div class="w3-row-padding w3-padding-64 w3-container">
@@ -95,8 +234,8 @@ session_start();
       ?>
       <p class="w3-text-grey"></p>
 
-      <button class="w3-button w3-blue w3-padding-large w3-small w3-margin-top">Send</button>
-      <button class="w3-button w3-red w3-padding-large w3-small w3-margin-top">Export</button>
+      <input type = "submit" name = "send1" class="w3-button w3-blue w3-padding-large w3-small w3-margin-top" value = "Send" />
+      <input type = "submit" name = "export1" class="w3-button w3-red w3-padding-large w3-small w3-margin-top" value = "Export" />
       <button class="w3-button w3-black w3-padding-large w3-small w3-margin-top" onclick="alert('Are you sure you want to delete?');">Delete</button>
       <br>
       <br>
@@ -131,8 +270,8 @@ session_start();
       <p class="w3-text-grey"></p>
 
 
-      <button class="w3-button w3-blue w3-padding-large w3-small w3-margin-top">Send</button>
-      <button class="w3-button w3-red w3-padding-large w3-small w3-margin-top">Export</button>
+      <input type = "submit" name = "send2" class="w3-button w3-blue w3-padding-large w3-small w3-margin-top" value = "Send" />
+      <input type = "submit" name = "export2" class="w3-button w3-red w3-padding-large w3-small w3-margin-top" value = "Export" />
       <button class="w3-button w3-black w3-padding-large w3-small w3-margin-top" onclick="alert('Are you sure you want to delete?');">Delete</button>
       <br>
       <br>
@@ -165,8 +304,8 @@ session_start();
       <p class="w3-text-grey"></p>
 
 
-      <button class="w3-button w3-blue w3-padding-large w3-small w3-margin-top">Send</button>
-      <button class="w3-button w3-red w3-padding-large w3-small w3-margin-top">Export</button>
+      <input type = "submit" name = "send3" class="w3-button w3-blue w3-padding-large w3-small w3-margin-top" value = "Send" />
+      <input type = "submit" name = "export3" class="w3-button w3-red w3-padding-large w3-small w3-margin-top" value = "Export" />
       <button class="w3-button w3-black w3-padding-large w3-small w3-margin-top" onclick="alert('Are you sure you want to delete?');">Delete</button>
       <br>
       <br>
@@ -201,8 +340,8 @@ session_start();
 
 
 
-      <button class="w3-button w3-blue w3-padding-large w3-small w3-margin-top">Send</button>
-      <button class="w3-button w3-red w3-padding-large w3-small w3-margin-top">Export</button>
+      <input type = "submit" name = "send4" class="w3-button w3-blue w3-padding-large w3-small w3-margin-top" value = "Send" />
+      <input type = "submit" name = "export4" class="w3-button w3-red w3-padding-large w3-small w3-margin-top" value = "Export" />
       <button class="w3-button w3-black w3-padding-large w3-small w3-margin-top" onclick="alert('Are you sure you want to delete?');">Delete</button>
       <br>
       <br>
@@ -235,8 +374,8 @@ session_start();
       <p class="w3-text-grey"></p>
 
 
-      <button class="w3-button w3-blue w3-padding-large w3-small w3-margin-top">Send</button>
-      <button class="w3-button w3-red w3-padding-large w3-small w3-margin-top">Export</button>
+      <input type = "submit" name = "send5" class="w3-button w3-blue w3-padding-large w3-small w3-margin-top" value = "Send" />
+      <input type = "submit" name = "export5" class="w3-button w3-red w3-padding-large w3-small w3-margin-top" value = "Export" />
       <button class="w3-button w3-black w3-padding-large w3-small w3-margin-top" onclick="alert('Are you sure you want to delete?');">Delete</button>
       <br>
       <br>

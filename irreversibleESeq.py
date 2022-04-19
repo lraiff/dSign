@@ -39,7 +39,7 @@ def DNAformatting(sequence):
 # please input the string of the signature because this code is separated from the generating signature code
 # you can take it from the database? 
 pdata = data_info(fpath) 
-CodedDNA, locations= nonreversibleplacing( pdata.DNAsequence, pdata.signature, pdata.signlocation)
+CodedDNA, locations= nonreversibleplacing(pdata.DNAsequence, pdata.signature, pdata.signlocation)
 print(CodedDNA.upper())
 
 

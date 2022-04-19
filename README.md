@@ -23,7 +23,6 @@ Installation Instructions:
 4. Copy all the files in the cloned repo and place them a newly created folder with the path: ~/xampp/htdocs/dSign
 
 
-
-5 Navigate to: http://localhost/dSign/
+5. Navigate to: http://localhost/dSign/
 
 

@@ -11,7 +11,6 @@ with open(fpath, 'r') as f:
 class data_info:
     def __init__(self, fpath = None ):
         self.DNAsequence=inputs["sequence"]
-        self.signlocation= inputs["location"]
         self.signature = inputs["signature"]
 
 def jsontostringDNA(DNA): 
