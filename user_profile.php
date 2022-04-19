@@ -11,6 +11,11 @@ session_start();
   
   if($_SERVER['REQUEST_METHOD'] == "POST") {
 
+    #the send button writes to a file that will hold the guest access key
+    #the export button writes to a file with all the sequence information that the user wants to themselves
+    #the delete button deletes all teh information corresponding to that sequence
+
+    #sequence1
     if(isset($_POST['send1'])) {
 
     }
@@ -37,10 +42,15 @@ session_start();
       fwrite($fileIDEX, $jsonStr);
       fclose($fileIDEX);
       header("Location: user_profile.php");
-
-
-  
     }
+    if(isset($_POST['delete1'])) {
+
+      $sql = "UPDATE users set Sequence1 = '', eSeq1 = '', designType1 = '', seqName1 = '', seqName1 = '', seqDesc1 = '', location1 = 0 WHERE id = '$id'";
+      mysqli_query($con,$sql);
+      header("Location: user_profile.php");
+    }
+
+    #sequence2
     if(isset($_POST['send2'])) {
 
     }
@@ -68,6 +78,14 @@ session_start();
       header("Location: user_profile.php");      
      
     }
+    if(isset($_POST['delete2'])) {
+
+      $sql = "UPDATE users set Sequence2 = '', eSeq2 = '', designType1 = '', seqName2 = '', seqName2 = '', seqDesc2 = '', location2 = 0 WHERE id = '$id'";
+      mysqli_query($con,$sql);
+      header("Location: user_profile.php");
+    }
+
+    #sequence3
     if(isset($_POST['send3'])) {
 
 
@@ -95,6 +113,14 @@ session_start();
       fclose($fileIDEX); 
       header("Location: user_profile.php");  
     }
+    if(isset($_POST['delete3'])) {
+
+      $sql = "UPDATE users set Sequence3 = '', eSeq3 = '', designType3 = '', seqName3 = '', seqName3 = '', seqDesc3 = '', location3 = 0 WHERE id = '$id'";
+      mysqli_query($con,$sql);
+      header("Location: user_profile.php");
+    }
+
+    #sequence4
     if(isset($_POST['send4'])) {
 
 
@@ -122,6 +148,14 @@ session_start();
       fclose($fileIDEX);
       header("Location: user_profile.php");
     }
+    if(isset($_POST['delete4'])) {
+
+      $sql = "UPDATE users set Sequence4 = '', eSeq4 = '', designType4 = '', seqName4 = '', seqName4 = '', seqDesc4 = '', location4 = 0 WHERE id = '$id'";
+      mysqli_query($con,$sql);
+      header("Location: user_profile.php");
+    }
+
+    #sequence 5
     if(isset($_POST['send5'])) {
 
     }
@@ -149,7 +183,14 @@ session_start();
       header("Location: user_profile.php");
 
     }
+    if(isset($_POST['delete5'])) {
 
+      $sql = "UPDATE users set Sequence5 = '', eSeq5 = '', designType5 = '', seqName5 = '', seqName5 = '', seqDesc5 = '', location5 = 0 WHERE id = '$id'";
+      mysqli_query($con,$sql);
+      header("Location: user_profile.php");
+    }
+
+    #button to input a new sequence
     if(isset($_POST['seq3'])) {
 
       header("Location: sequence_input.php");
@@ -236,7 +277,7 @@ session_start();
 
       <input type = "submit" name = "send1" class="w3-button w3-blue w3-padding-large w3-small w3-margin-top" value = "Send" />
       <input type = "submit" name = "export1" class="w3-button w3-red w3-padding-large w3-small w3-margin-top" value = "Export" />
-      <button class="w3-button w3-black w3-padding-large w3-small w3-margin-top" onclick="alert('Are you sure you want to delete?');">Delete</button>
+      <input type = "submit" name = "delete1" class="w3-button w3-black w3-padding-large w3-small w3-margin-top" onclick="alert('Are you sure you want to delete?');" value = "Delete">      
       <br>
       <br>
       </fieldset>
@@ -272,7 +313,7 @@ session_start();
 
       <input type = "submit" name = "send2" class="w3-button w3-blue w3-padding-large w3-small w3-margin-top" value = "Send" />
       <input type = "submit" name = "export2" class="w3-button w3-red w3-padding-large w3-small w3-margin-top" value = "Export" />
-      <button class="w3-button w3-black w3-padding-large w3-small w3-margin-top" onclick="alert('Are you sure you want to delete?');">Delete</button>
+      <input type = "submit" name = "delete2" class="w3-button w3-black w3-padding-large w3-small w3-margin-top" onclick="alert('Are you sure you want to delete?');" value = "Delete"> 
       <br>
       <br>
       </fieldset>
@@ -306,7 +347,7 @@ session_start();
 
       <input type = "submit" name = "send3" class="w3-button w3-blue w3-padding-large w3-small w3-margin-top" value = "Send" />
       <input type = "submit" name = "export3" class="w3-button w3-red w3-padding-large w3-small w3-margin-top" value = "Export" />
-      <button class="w3-button w3-black w3-padding-large w3-small w3-margin-top" onclick="alert('Are you sure you want to delete?');">Delete</button>
+      <input type = "submit" name = "delete3" class="w3-button w3-black w3-padding-large w3-small w3-margin-top" onclick="alert('Are you sure you want to delete?');" value = "Delete"> 
       <br>
       <br>
       </fieldset>
@@ -342,7 +383,7 @@ session_start();
 
       <input type = "submit" name = "send4" class="w3-button w3-blue w3-padding-large w3-small w3-margin-top" value = "Send" />
       <input type = "submit" name = "export4" class="w3-button w3-red w3-padding-large w3-small w3-margin-top" value = "Export" />
-      <button class="w3-button w3-black w3-padding-large w3-small w3-margin-top" onclick="alert('Are you sure you want to delete?');">Delete</button>
+      <input type = "submit" name = "delete4" class="w3-button w3-black w3-padding-large w3-small w3-margin-top" onclick="alert('Are you sure you want to delete?');" value = "Delete"> 
       <br>
       <br>
       </fieldset>
@@ -376,7 +417,7 @@ session_start();
 
       <input type = "submit" name = "send5" class="w3-button w3-blue w3-padding-large w3-small w3-margin-top" value = "Send" />
       <input type = "submit" name = "export5" class="w3-button w3-red w3-padding-large w3-small w3-margin-top" value = "Export" />
-      <button class="w3-button w3-black w3-padding-large w3-small w3-margin-top" onclick="alert('Are you sure you want to delete?');">Delete</button>
+      <input type = "submit" name = "delete5" class="w3-button w3-black w3-padding-large w3-small w3-margin-top" onclick="alert('Are you sure you want to delete?');" value = "Delete"> 
       <br>
       <br>
       </fieldset>
