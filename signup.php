@@ -1,4 +1,6 @@
 <?php 
+
+#this is the signup page
 session_start();
 
 	include("connection.php");

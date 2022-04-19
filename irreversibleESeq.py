@@ -1,4 +1,4 @@
-#importvaluesfromdatabase 
+#this script places the signature into an irreversible sequence
 from textwrap import wrap
 import random
 import json

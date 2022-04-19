@@ -1,4 +1,5 @@
 <?php 
+//this script is the login page
 
 session_start();
 

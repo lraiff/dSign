@@ -8,6 +8,7 @@
     $user_data = check_login($con);
     $id = $user_data['id'];
 
+    #create a json file
     $file = "seqInfo.json";
     if (file_exists($file)) {
         unlink($file);
@@ -17,6 +18,7 @@
         $fileID = fopen($file, "x");
     }
 
+    #depending on which sequence number the user chose, write sequence information to a json file and execute a python script that depending on they type of sequence places the signature in the sequence
     if($_SESSION['seqNum'] == 1) {
         $input = array("sequence" => $user_data['Sequence1'], "state" => $user_data['designType1'], "location" => $user_data['location1'], "signature" => $user_data['encryptedSignature']);
 

@@ -1,5 +1,8 @@
 <?php
 
+#this script writes all the user input information to a json file and executes a python script which creates the signature
+#the signature is then stored in the database
+
     session_start();
 
 	include("connection.php");

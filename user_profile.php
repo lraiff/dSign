@@ -1,6 +1,10 @@
 <?php 
 session_start();
 
+#this is the user profile page 
+#once logged in users can view, add, or edit sequences they entered
+#this is the only page where you can access the sequence input
+
 	include("connection.php");
 	include("functions.php");
 

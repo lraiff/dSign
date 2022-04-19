@@ -1,4 +1,5 @@
 <?php
+//this script logs the current user out by ending the session
 
 session_start();
 
