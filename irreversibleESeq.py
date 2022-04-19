@@ -22,7 +22,7 @@ def jsontostringDNA(DNA):
 
 def nonreversibleplacing( DNA, signature, location):
     stringDNA= jsontostringDNA(DNA)
-    CodedDNA= stringDNA[:location] + signature + stringDNA[location:]
+    CodedDNA= stringDNA[:int(location)] + signature + stringDNA[int(location):]
 
     return CodedDNA, location
 
