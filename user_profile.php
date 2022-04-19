@@ -7,6 +7,16 @@ session_start();
 	$user_data = check_login($con); 
   $id = $user_data['id']; 
 
+  
+  if($_SERVER['REQUEST_METHOD'] == "POST") {
+
+
+    header("Location: sequence_input.php");
+
+        
+    }
+  
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,10 +56,14 @@ session_start();
 </div>
 
 <!-- Header -->
+<form method="POST">
 <header class="w3-container w3-red w3-center" style="padding:42px 16px">
   <p class="w3-xxlarge">Your Profile</p>
   <hr>
+  <p class="w3-large">Your DNA signature</p>
+  <?php echo $user_data['encryptedSignature']; ?>
   <p class="w3-large">Send, Export, and Delete your registered sequences below</p>
+  <input type = "submit" class="w3-button w3-black w3-padding-large w3-small w3-margin-top" name = 'seq3' value = "Add/Change Sequence Here">
 </header>
 <br>
 
@@ -60,12 +74,21 @@ session_start();
       <h3>Sequence 1</h3>
       <fieldset>
       <h5 class="w3-padding-16">Name: </h5>
+      <?php
+        echo $user_data["seqName1"];
+      ?>
       <h5 class="w3-padding-16">Type of Encryption: </h5>
       <?php 
           echo $user_data["designType1"];
       ?>
       <h5 class="w3-padding-16">Description:</h5>
+      <?php
+        echo $user_data["seqDesc1"];
+      ?>
       <h5 class="w3-padding-16">Encrypted Sequence:</h5>
+      <?php
+        echo $user_data["eSeq1"];
+      ?>
       <p class="w3-text-grey"></p>
 
       <button class="w3-button w3-blue w3-padding-large w3-small w3-margin-top">Send</button>
@@ -85,14 +108,24 @@ session_start();
       <h3>Sequence 2</h3>
       <fieldset>
       <h5 class="w3-padding-16">Name:</h5>
+      <?php
+        echo $user_data["seqName2"];
+      ?>
       <h5 class="w3-padding-16">Type of Encryption: </h5>
       <?php 
           echo $user_data["designType2"];
       ?>
       <h5 class="w3-padding-16">Description:</h5>
+      <?php
+        echo $user_data["seqDesc2"];
+      ?>
       <h5 class="w3-padding-16">Encrypted Sequence:</h5>
+      <?php
+        echo $user_data["eSeq2"];
+      ?>
 
       <p class="w3-text-grey"></p>
+
 
       <button class="w3-button w3-blue w3-padding-large w3-small w3-margin-top">Send</button>
       <button class="w3-button w3-red w3-padding-large w3-small w3-margin-top">Export</button>
@@ -110,13 +143,23 @@ session_start();
       <h3>Sequence 3</h3>
       <fieldset>
       <h5 class="w3-padding-16">Name: </h5>
+      <?php
+        echo $user_data["seqName3"];
+      ?>
       <h5 class="w3-padding-16">Type of Encryption: </h5>
       <?php 
           echo $user_data["designType3"];
       ?>
       <h5 class="w3-padding-16">Description:</h5>
+      <?php
+        echo $user_data["seqDesc3"];
+      ?>
       <h5 class="w3-padding-16">Encrypted Sequence:</h5>
+      <?php
+        echo $user_data["eSeq3"];
+      ?>
       <p class="w3-text-grey"></p>
+
 
       <button class="w3-button w3-blue w3-padding-large w3-small w3-margin-top">Send</button>
       <button class="w3-button w3-red w3-padding-large w3-small w3-margin-top">Export</button>
@@ -134,14 +177,25 @@ session_start();
       <h3>Sequence 4</h3>
       <fieldset>
       <h5 class="w3-padding-16">Name:</h5>
+      <?php
+        echo $user_data["seqName4"];
+      ?>
       <h5 class="w3-padding-16">Type of Encryption: </h5>
       <?php 
           echo $user_data["designType4"];
       ?>
       <h5 class="w3-padding-16">Description:</h5>
+      <?php
+        echo $user_data["seqDesc4"];
+      ?>
       <h5 class="w3-padding-16">Encrypted Sequence:</h5>
+      <?php
+        echo $user_data["eSeq4"];
+      ?>
 
       <p class="w3-text-grey"></p>
+
+
 
       <button class="w3-button w3-blue w3-padding-large w3-small w3-margin-top">Send</button>
       <button class="w3-button w3-red w3-padding-large w3-small w3-margin-top">Export</button>
@@ -159,13 +213,23 @@ session_start();
       <h3>Sequence 5</h3>
       <fieldset>
       <h5 class="w3-padding-16">Name: </h5>
+      <?php
+        echo $user_data["seqName5"];
+      ?>
       <h5 class="w3-padding-16">Type of Encryption: </h5>
       <?php 
           echo $user_data["designType5"];
       ?>
       <h5 class="w3-padding-16">Description:</h5>
+      <?php
+        echo $user_data["seqDesc5"];
+      ?>
       <h5 class="w3-padding-16">Encrypted Sequence:</h5>
+      <?php
+        echo $user_data["eSeq5"];
+      ?>
       <p class="w3-text-grey"></p>
+
 
       <button class="w3-button w3-blue w3-padding-large w3-small w3-margin-top">Send</button>
       <button class="w3-button w3-red w3-padding-large w3-small w3-margin-top">Export</button>
@@ -176,6 +240,7 @@ session_start();
     </div>
   </div>
 </div>
+      </form>
 
 </body>
 </html>

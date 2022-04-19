@@ -1,35 +1,33 @@
-#importvaluesfromdatabase 
-from textwrap import wrap
-import random
+#DONT CHANGE THIS CODE
+
 import json
 import numpy as np
 
-fpath= 'C:/Users/aurel/OneDrive/Desktop ASUS/BE 552/Project Encryption/'
-with open(fpath+'/input_database.json', 'r') as f:
+with open('C:\\xampp\\htdocs\\dSign\\signInfo.json', 'r') as f:
     inputs=json.load(f)
 
 class data_info:
-    def __init__(self, fpath = None ):
-        self.username= inputs[0]["username"]
-        self.last_name= inputs[0]["last_name"]
-        self.first_name= inputs[0]["first_name"]
-        self.institution_type= inputs[0]["institution_type"]
-        self.institution_code= inputs[0]["institution_code"]
-        self.password= inputs[0]["password"]
-        self.doi= inputs[0]["doi"]
-        self.fileid= inputs[0]["file_id_list"][0]["ID"]
-        self.country= inputs[0]["country"]
-        self.DNAsequence=inputs[0]["file_id_list"][0]["sequence"]
-        self.signstate= inputs[0]["file_id_list"][0]["signature"]["state"]
-        self.signlocation= inputs[0]["file_id_list"][0]["signature"]["location"]
+    def __init__(self, fpath = None):
+        #self.username= inputs[0]["username"]
+        self.first_name= inputs["first_name"]
+        self.last_name= inputs["last_name"]
+        self.institution_type= inputs["institution_type"]
+        self.institution_code= inputs["institution_code"]
+        self.password= inputs["password"]
+        #self.user_id =inputs[0]["user_id"]
+        #self.doi= inputs[0]["doi"]
+        #self.fileid= inputs[0]["file_id_list"][0]["ID"]
+        self.country= inputs["country"]
+
+
 
 def combine_array( last_name, first_name, institution_type, institution_code, password, country):
     passarr= list(password)
     passarr.sort()
-    if institution_type == "University":
+    if institution_type == "Academia":
         insti_type= "UNI"
-    elif institution_type == "Research":
-        insti_type= "RSCH"
+    elif institution_type == "Industry":
+        insti_type= "IND"
 
     # make the data into an array 
     str= last_name + first_name + insti_type + institution_code + country 
@@ -82,8 +80,11 @@ def signcode(password, finalarr):
 
     return DNAsequence, completecode
 
-## below is a sample on how to call the function 
-pdata = data_info(fpath + '/input_database.json')
+
+
+#test = data_info('filepathstring')
+pdata = data_info()
 final=combine_array( pdata.last_name, pdata.first_name, pdata.institution_type, pdata.institution_code, pdata.password, pdata.country)
-signatureinDNA,code= signcode(pdata.password, final)
+DNA,code= signcode(pdata.password, final)
+print(DNA)
 #you can save the data and the code into a database! 
