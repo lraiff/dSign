@@ -28,6 +28,7 @@
     fclose($fileID);
 
     $output = exec('dnasignencrypt.py', $encryptSign);
+    echo $output;
     print_r($encryptSign);
 
     $sql = "UPDATE users SET encryptedSignature = '$encryptSign[0]' WHERE id = '$id'";

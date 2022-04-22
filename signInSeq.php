@@ -28,7 +28,7 @@
         fclose($fileID);
 
         if ($user_data['designType1'] == 'Reversible') {
-            $output = exec('reversibleESeq.py', $encryptSeq);
+            $output = passthru('reversibleESeq.py', $encryptSeq);
 
         }
         else {

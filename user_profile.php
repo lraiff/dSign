@@ -18,6 +18,8 @@ session_start();
     #each sequence has a set of if statements that execute depending if the user selected the send, export, or delete button
 
     #sequence1
+
+    #send 1
     if(isset($_POST['send1'])) {
 
       if($user_data['instType'] == "Academia") {
@@ -42,10 +44,18 @@ session_start();
 
       fwrite($fileIDSH, $jsonStr);
       fclose($fileIDSH);
-      exec('dnaencrypt.py');
+
+      #make keys and write to files, these files are what you are sharing
+      $python  = 'C:\Users\laura\AppData\Local\Programs\Python\Python39\python.exe';
+      $pyscript = 'C:\xampp\htdocs\dSign\dnaencrypt.py';
+      unset($shareKey);
+      unset($output);
+
+      $output = exec($pyscript, $shareKey);
       header("Location: user_profile.php");
     }
 
+    #export 1
     if(isset($_POST['export1'])) {
       if($user_data['designType1'] == 'Irreversible') {
         $input = array("Name" => $user_data['seqName1'], "Description" => $user_data['seqDesc1'], "Sequence" => $user_data['Sequence1'], "Signature" => $user_data['encryptedSignature'], "Signature location" => $user_data['location1'], "Encrypted Sequence" => $user_data['eSeq1'], "Instructions" => "For manufacturing purposes only");
@@ -70,6 +80,8 @@ session_start();
       fclose($fileIDEX);
       header("Location: user_profile.php");
     }
+
+    #delete 1
     if(isset($_POST['delete1'])) {
 
       $sql = "UPDATE users set Sequence1 = '', eSeq1 = '', designType1 = '', seqName1 = '', seqName1 = '', seqDesc1 = '', location1 = 0 WHERE id = '$id'";
@@ -78,6 +90,7 @@ session_start();
     }
 
     #sequence2
+    #send 2
     if(isset($_POST['send2'])) {
       if($user_data['instType'] == "Academia") {
         $input = array("password" => $user_data['password'], "last_name" => $user_data['lastName'], "first_name" => $user_data['firstName'], "email" => $user_data['email'], "institution_code" => $user_data['institution'], "Type" => "Title IV Institution Code", "description" => $user_data['seqDesc2']);
@@ -98,19 +111,31 @@ session_start();
     }
 
       $jsonStr = json_encode($input, JSON_PRETTY_PRINT);
-
+      
       fwrite($fileIDSH, $jsonStr);
       fclose($fileIDSH);
-      exec('dnaencrypt.py');
+
+
+
+      #make keys and write to files, these files are what you are sharing
+      $python  = 'C:\Users\laura\AppData\Local\Programs\Python\Python39\python.exe';
+      $pyscript = 'C:\xampp\htdocs\dSign\dnaencrypt.py';
+      unset($shareKey);
+      unset($output);
+
+      $output = exec($pyscript, $shareKey);
+
       header("Location: user_profile.php");
 
-    }
+      }
+
+    #export 2
     if(isset($_POST['export2'])) {
       if($user_data['designType2'] == 'Irreversible') {
         $input = array("Name" => $user_data['seqName2'], "Description" => $user_data['seqDesc2'], "Sequence" => $user_data['Sequence2'], "Signature" => $user_data['encryptedSignature'], "Signature location" => $user_data['location2'], "Encrypted Sequence" => $user_data['eSeq2'], "Instructions" => "For manufacturing purposes only");
         }
       else {
-          $input = array("Name" => $user_data['seqName2'], "Description" => $user_data['seqDesc2'], "Sequence" => $user_data['Sequence2'], "Signature" => $user_data['encryptedSignature'], "Encrypted Sequence" => $user_data['eSeq2'], "Instructions" => "For computational purposes only");
+        $input = array("Name" => $user_data['seqName2'], "Description" => $user_data['seqDesc2'], "Sequence" => $user_data['Sequence2'], "Signature" => $user_data['encryptedSignature'], "Encrypted Sequence" => $user_data['eSeq2'], "Instructions" => "For computational purposes only");
       }
       #create a json file for exporting
       $fileEX = "seq2.json";
@@ -129,14 +154,17 @@ session_start();
       header("Location: user_profile.php");      
      
     }
+
+    #delete2
     if(isset($_POST['delete2'])) {
 
-      $sql = "UPDATE users set Sequence2 = '', eSeq2 = '', designType1 = '', seqName2 = '', seqName2 = '', seqDesc2 = '', location2 = 0 WHERE id = '$id'";
+      $sql = "UPDATE users set Sequence2 = '', eSeq2 = '', designType2 = '', seqName2 = '', seqName2 = '', seqDesc2 = '', location2 = 0 WHERE id = '$id'";
       mysqli_query($con,$sql);
       header("Location: user_profile.php");
     }
 
     #sequence3
+    #send 3
     if(isset($_POST['send3'])) {
       if($user_data['instType'] == "Academia") {
         $input = array("password" => $user_data['password'], "last_name" => $user_data['lastName'], "first_name" => $user_data['firstName'], "email" => $user_data['email'], "institution_code" => $user_data['institution'], "Type" => "Title IV Institution Code", "description" => $user_data['seqDesc3']);
@@ -160,14 +188,23 @@ session_start();
 
       fwrite($fileIDSH, $jsonStr);
       fclose($fileIDSH);
-      exec('dnaencrypt.py');
+
+      #make keys and write to files, these files are what you are sharing
+      $python  = 'C:\Users\laura\AppData\Local\Programs\Python\Python39\python.exe';
+      $pyscript = 'C:\xampp\htdocs\dSign\dnaencrypt.py';
+      unset($shareKey);
+      unset($output);
+
+      $output = exec($pyscript, $shareKey);
+
+      $fileP = "public.key";
       header("Location: user_profile.php");
-
-
     }
+
+    #export 3
     if(isset($_POST['export3'])) {
       if($user_data['designType3'] == 'Irreversible') {
-        $input = array("Name" => $user_data['seqName3'], "Description" => $user_data['seqDesc1'], "Sequence" => $user_data['Sequence3'], "Signature" => $user_data['encryptedSignature'], "Signature location" => $user_data['location3'], "Encrypted Sequence" => $user_data['eSeq3'], "Instructions" => "For manufacturing purposes only");
+        $input = array("Name" => $user_data['seqName3'], "Description" => $user_data['seqDesc3'], "Sequence" => $user_data['Sequence3'], "Signature" => $user_data['encryptedSignature'], "Signature location" => $user_data['location3'], "Encrypted Sequence" => $user_data['eSeq3'], "Instructions" => "For manufacturing purposes only");
         }
       else {
           $input = array("Name" => $user_data['seqName3'], "Description" => $user_data['seqDesc3'], "Sequence" => $user_data['Sequence3'], "Signature" => $user_data['encryptedSignature'], "Encrypted Sequence" => $user_data['eSeq3'], "Instructions" => "For computational purposes only");
@@ -188,6 +225,8 @@ session_start();
       fclose($fileIDEX); 
       header("Location: user_profile.php");  
     }
+
+    #delete3
     if(isset($_POST['delete3'])) {
 
       $sql = "UPDATE users set Sequence3 = '', eSeq3 = '', designType3 = '', seqName3 = '', seqName3 = '', seqDesc3 = '', location3 = 0 WHERE id = '$id'";
@@ -196,6 +235,7 @@ session_start();
     }
 
     #sequence4
+    #send 4
     if(isset($_POST['send4'])) {
       if($user_data['instType'] == "Academia") {
         $input = array("password" => $user_data['password'], "last_name" => $user_data['lastName'], "first_name" => $user_data['firstName'], "email" => $user_data['email'], "institution_code" => $user_data['institution'], "Type" => "Title IV Institution Code", "description" => $user_data['seqDesc4']);
@@ -219,11 +259,19 @@ session_start();
 
       fwrite($fileIDSH, $jsonStr);
       fclose($fileIDSH);
-      exec('dnaencrypt.py');
+
+      #make keys and write to files, these files are what you are sharing
+      $python  = 'C:\Users\laura\AppData\Local\Programs\Python\Python39\python.exe';
+      $pyscript = 'C:\xampp\htdocs\dSign\dnaencrypt.py';
+      unset($shareKey);
+      unset($output);
+
+      $output = exec($pyscript, $shareKey);
+
       header("Location: user_profile.php");
-
-
     }
+
+    #export 4
     if(isset($_POST['export4'])) {
       if($user_data['designType4'] == 'Irreversible') {
         $input = array("Name" => $user_data['seqName4'], "Description" => $user_data['seqDesc4'], "Sequence" => $user_data['Sequence4'], "Signature" => $user_data['encryptedSignature'], "Signature location" => $user_data['location4'], "Encrypted Sequence" => $user_data['eSeq4'], "Instructions" => "For manufacturing purposes only");
@@ -245,8 +293,13 @@ session_start();
 
       fwrite($fileIDEX, $jsonStr);
       fclose($fileIDEX);
+
+
+
       header("Location: user_profile.php");
     }
+
+    #delete4
     if(isset($_POST['delete4'])) {
 
       $sql = "UPDATE users set Sequence4 = '', eSeq4 = '', designType4 = '', seqName4 = '', seqName4 = '', seqDesc4 = '', location4 = 0 WHERE id = '$id'";
@@ -255,6 +308,7 @@ session_start();
     }
 
     #sequence 5
+    #send 5
     if(isset($_POST['send5'])) {
       if($user_data['instType'] == "Academia") {
         $input = array("password" => $user_data['password'], "last_name" => $user_data['lastName'], "first_name" => $user_data['firstName'], "email" => $user_data['email'], "institution_code" => $user_data['institution'], "Type" => "Title IV Institution Code", "description" => $user_data['seqDesc5']);
@@ -278,10 +332,19 @@ session_start();
 
       fwrite($fileIDSH, $jsonStr);
       fclose($fileIDSH);
-      exec('dnaencrypt.py');
+
+      #make keys and write to files, these files are what you are sharing
+      $python  = 'C:\Users\laura\AppData\Local\Programs\Python\Python39\python.exe';
+      $pyscript = 'C:\xampp\htdocs\dSign\dnaencrypt.py';
+      unset($shareKey);
+      unset($output);
+
+      $output = exec($pyscript, $shareKey);
       header("Location: user_profile.php");
 
     }
+
+    #export5
     if(isset($_POST['export5'])) {
       if($user_data['designType5'] == 'Irreversible') {
         $input = array("Name" => $user_data['seqName5'], "Description" => $user_data['seqDesc5'], "Sequence" => $user_data['Sequence5'], "Signature" => $user_data['encryptedSignature'], "Signature location" => $user_data['location5'], "Encrypted Sequence" => $user_data['eSeq5'], "Instructions" => "For manufacturing purposes only");
@@ -306,6 +369,8 @@ session_start();
       header("Location: user_profile.php");
 
     }
+
+    #delete5
     if(isset($_POST['delete5'])) {
 
       $sql = "UPDATE users set Sequence5 = '', eSeq5 = '', designType5 = '', seqName5 = '', seqName5 = '', seqDesc5 = '', location5 = 0 WHERE id = '$id'";

@@ -42,7 +42,7 @@ session_start();
     <?php if( isset($_SESSION['loggedIn'])) { ?>
     <a href="<?php echo "http://localhost/dSign/signatureInput.php"; ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Signature</a>
     <?php } else { ?>
-    <a href="<?php echo "http://localhost/dSign/login.php"; ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Signaure</a>
+    <a href="<?php echo "http://localhost/dSign/login.php"; ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Signature</a>
     <?php } ?>
 
     <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">FAQ</a>
@@ -69,7 +69,7 @@ session_start();
   <p class="w3-xlarge">Designed by Aurelia Leona, Laura Raiff, Sally Shin, and Zenia Valdiviezo</p>
   <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top" onclick = "window.location.href='login.php'">Login</button>
   <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top" onclick = "window.location.href='signup.php'">Sign up</button>
-  <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top" onclick = "window.location.href='guess_access.php'">Guest</button>
+  <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top" onclick = "window.location.href='guestLogin.php'">Guest</button>
 </header>
 
 <!-- First Grid -->

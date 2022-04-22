@@ -1,5 +1,4 @@
 <?php 
-#this script gets the necessary information to generate the DNA siganture
     session_start();
 
 	include("connection.php");

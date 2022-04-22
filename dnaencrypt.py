@@ -21,15 +21,19 @@ def genkeyandencrypt():
     )
     public_key = base64.urlsafe_b64encode(kdf.derive(password))
     key= Fernet(public_key)
-    message= "This sequence was made by " + inputs["last_name"] + ", " + inputs["first_name"] + " (" + inputs["email"] + ") from " +  inputs["institution_code"] + inputs["Type"] + "\n" + inputs["description"]
+    message= "This sequence was made by " + inputs["last_name"] + ", " + inputs["first_name"] + " (" + inputs["email"] + ") from " +  inputs["institution_code"] + " (" + inputs["Type"] + ")" " Description: " + inputs["description"]
     #you can change the messages if you want by changing the name of the messages which is taken from the json file
     token = key.encrypt(bytes(message, 'utf-8'))
-    #outputs the .key files
+        #outputs the .key files
     with open("public.key", "wb") as key_file:
         key_file.write(public_key)
     with open("datacode.key", "wb") as key_file:
         key_file.write(token)
+    #return public_key, token
+
 
 
 # # how to use the function 
-genkeyandencrypt() # to generate the key, it will output a public.key file and a datacode.key file
+public_key, token = genkeyandencrypt() # to generate the key, it will output a public.key file and a datacode.key file
+#print(public_key)
+#print(token)

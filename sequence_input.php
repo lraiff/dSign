@@ -1,6 +1,4 @@
 <?php 
-#this script gets the necessary input information from the user for a new sequence and stores it into the database
-#the user can't store more than 5 sequences as a time
 session_start();
 
 	include("connection.php");
