@@ -25,7 +25,7 @@ def nonreversibleplacing( DNA, signature, location):
     # the signature is placed as a whole with a primer for the Type II restriction 
     # enzyme in front of it and is placed in the location indicated by the user. 
     primer = "AAGCTT" #primer
-    sign = primer + signature
+    sign = primer + signature + primer
     stringDNA= jsontostringDNA(DNA)
     CodedDNA= stringDNA[:int(location)] + sign + stringDNA[int(location):]
 
