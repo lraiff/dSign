@@ -14,32 +14,34 @@ class data_info:
         self.signature = inputs["signature"]
 
 def jsontostringDNA(DNA): 
+    # converting the DNA from a json file to a string 
     strDNA= ''.join([str(item) for item in DNA])
     strDNA= strDNA.replace(" ","")
     return strDNA
 
 
 def reversibleplacing( DNA, signature):
-    num=[]
-    primer = "AAGCTT"
+    #the signature is ordered in different randomized locations in the original sequence
+    num=[] #locations for each character in the signature 
     stringDNA= jsontostringDNA(DNA)
-    signature= primer + signature
+    signature= signature
     M= len(stringDNA)
     N= len(signature)
     final= list(stringDNA)
     for i in range(0,N-1):
-        num.append(int(random.randint(1,M)))
-        while num[i] in num[0: i-1]:
+        num.append(int(random.randint(1,M))) #find the randomized location
+        while num[i] in num[0: i-1]: 
             num.remove(num[i])
             num.append(int(random.randint(1,M)))
-            if num[i] not in num[0: i-1]: 
+            if num[i] not in num[0: i-1]:  #it would not generate the same position 
                 break
         final.insert(num[i], signature[i])
-        M += 1
+        M += 1 #increase the total length of the sequence as each character of the signature is added in
     final="".join(final)
     return final, num 
 
 def DNAformatting(sequence):
+    # converting the encrypted sequence from a string to json file format
     split_strings=[]
     for index in range(0, len(sequence), 10):
             split_strings.append(sequence[index : index + 10])

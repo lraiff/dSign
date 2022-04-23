@@ -15,18 +15,24 @@ class data_info:
         self.signature = inputs["signature"]
 
 def jsontostringDNA(DNA): 
+    # converting the DNA from a json file to a string 
     strDNA= ''.join([str(item) for item in DNA])
     strDNA= strDNA.replace(" ","")
     return strDNA
 
 
 def nonreversibleplacing( DNA, signature, location):
+    # the signature is placed as a whole with a primer for the Type II restriction 
+    # enzyme in front of it and is placed in the location indicated by the user. 
+    primer = "AAGCTT" #primer
+    sign = primer + signature
     stringDNA= jsontostringDNA(DNA)
-    CodedDNA= stringDNA[:int(location)] + signature + stringDNA[int(location):]
+    CodedDNA= stringDNA[:int(location)] + sign + stringDNA[int(location):]
 
     return CodedDNA, location
 
 def DNAformatting(sequence):
+    # converting the encrypted sequence from a string to json file format
     split_strings=[]
     for index in range(0, len(sequence), 10):
             split_strings.append(sequence[index : index + 10])

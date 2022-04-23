@@ -7,9 +7,11 @@ from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 
 def decrypt(filename1, filename2): 
-    with open(filename1, "rb") as key_file: #filename1= public.key
-        public_key=key_file.read()
-    with open(filename2, "rb") as key_file: #filename2= code.key
+    with open(filename1, "rb") as key_file: 
+        #filename1= public.key is the key to share to another user
+        public_key=key_file.read() 
+    with open(filename2, "rb") as key_file: 
+        #filename2= datacode.key is the encrypted message 
         token=key_file.read()
     key =  Fernet(public_key)
     plaintext = key.decrypt(token)
