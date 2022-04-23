@@ -40,14 +40,16 @@ Necessary python modules:<br>
 ## Using the Webpage Software
 
 1. Register as a user on the software - username can be anything but password must be 10 any characters long. (E.g. @rTW1nR56g or RTerTFWoOP)
+2. Login with your login details
+3. Click "ADD SIGNATURE" to enter personal information for composing the unique signature. This encrypted signature will be displayed 
 
 
 ## Contributions
 
-Aurelia Leona - Encryption (Back-end)
-Laura Raiff - Database and linking web-pages (Back-end and Front-end)
-Sally Shin - Webpage design (front-end)
-Zenia Valdiviezo - Primer information output, Presentation, Demo, Report leader
+Aurelia Leona - Encryption (Back-end) <br>
+Laura Raiff - Database and linking web-pages (Back-end and Front-end) <br>
+Sally Shin - Webpage design (front-end) <br>
+Zenia Valdiviezo - Primer information output, Presentation, Demo, Report leader <br>
 
 ### YouTube Demo link
 
