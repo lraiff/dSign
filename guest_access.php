@@ -10,7 +10,7 @@ $filename2 = $_FILES['data']['name'];
 
 $pyscript = 'C:\xampp\htdocs\dSign\dnadecrypt.py';
 
-$output = exec("dnadecrypt.py", $message, $retval);
+$output = exec("dnadecrypt.py", $message);
 
 ?>
 

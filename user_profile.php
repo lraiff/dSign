@@ -23,11 +23,11 @@ session_start();
     if(isset($_POST['send1'])) {
 
       if($user_data['instType'] == "Academia") {
-        $input = array("password" => $user_data['password'], "last_name" => $user_data['lastName'], "first_name" => $user_data['firstName'], "email" => $user_data['email'], "institution_code" => $user_data['institution'], "Type" => "Title IV Institution Code", "description" => $user_data['seqDesc1']);
+        $input = array("password" => $user_data['password'], "last_name" => $user_data['lastName'], "first_name" => $user_data['firstName'], "email" => $user_data['email'], "institution_code" => $user_data['institution'], "Type" => "Title IV Institution Code", "description" => $user_data['seqDesc1']), "sequence" => $user_data['eSeq1']);
         
       }
       else {
-        $input = array("password" => $user_data['password'], "last_name" => $user_data['lastName'], "first_name" => $user_data['firstName'], "email" => $user_data['email'], "institution_code" => $user_data['institution'], "Type" => "Nasdaq Code", "description" => $user_data['seqDesc1']);
+        $input = array("password" => $user_data['password'], "last_name" => $user_data['lastName'], "first_name" => $user_data['firstName'], "email" => $user_data['email'], "institution_code" => $user_data['institution'], "Type" => "Nasdaq Code", "description" => $user_data['seqDesc1'], "sequence" => $user_data['eSeq1']);
       }
 
       #create a json file for sharing
@@ -93,11 +93,11 @@ session_start();
     #send 2
     if(isset($_POST['send2'])) {
       if($user_data['instType'] == "Academia") {
-        $input = array("password" => $user_data['password'], "last_name" => $user_data['lastName'], "first_name" => $user_data['firstName'], "email" => $user_data['email'], "institution_code" => $user_data['institution'], "Type" => "Title IV Institution Code", "description" => $user_data['seqDesc2']);
+        $input = array("password" => $user_data['password'], "last_name" => $user_data['lastName'], "first_name" => $user_data['firstName'], "email" => $user_data['email'], "institution_code" => $user_data['institution'], "Type" => "Title IV Institution Code", "description" => $user_data['seqDesc2'], "sequence" => $user_data['eSeq2']);
         
       }
       else {
-        $input = array("password" => $user_data['password'], "last_name" => $user_data['lastName'], "first_name" => $user_data['firstName'], "email" => $user_data['email'], "institution_code" => $user_data['institution'], "Type" => "Nasdaq Code", "description" => $user_data['seqDesc2']);
+        $input = array("password" => $user_data['password'], "last_name" => $user_data['lastName'], "first_name" => $user_data['firstName'], "email" => $user_data['email'], "institution_code" => $user_data['institution'], "Type" => "Nasdaq Code", "description" => $user_data['seqDesc2'], "sequence" => $user_data['eSeq2']);
       }
 
       #create a json file for sharing
@@ -167,11 +167,11 @@ session_start();
     #send 3
     if(isset($_POST['send3'])) {
       if($user_data['instType'] == "Academia") {
-        $input = array("password" => $user_data['password'], "last_name" => $user_data['lastName'], "first_name" => $user_data['firstName'], "email" => $user_data['email'], "institution_code" => $user_data['institution'], "Type" => "Title IV Institution Code", "description" => $user_data['seqDesc3']);
+        $input = array("password" => $user_data['password'], "last_name" => $user_data['lastName'], "first_name" => $user_data['firstName'], "email" => $user_data['email'], "institution_code" => $user_data['institution'], "Type" => "Title IV Institution Code", "description" => $user_data['seqDesc3']), "sequence" => $user_data['eSeq3'];
         
       }
       else {
-        $input = array("password" => $user_data['password'], "last_name" => $user_data['lastName'], "first_name" => $user_data['firstName'], "email" => $user_data['email'], "institution_code" => $user_data['institution'], "Type" => "Nasdaq Code", "description" => $user_data['seqDesc3']);
+        $input = array("password" => $user_data['password'], "last_name" => $user_data['lastName'], "first_name" => $user_data['firstName'], "email" => $user_data['email'], "institution_code" => $user_data['institution'], "Type" => "Nasdaq Code", "description" => $user_data['seqDesc3'], "sequence" => $user_data['eSeq3']);
       }
 
       #create a json file for sharing
@@ -238,11 +238,11 @@ session_start();
     #send 4
     if(isset($_POST['send4'])) {
       if($user_data['instType'] == "Academia") {
-        $input = array("password" => $user_data['password'], "last_name" => $user_data['lastName'], "first_name" => $user_data['firstName'], "email" => $user_data['email'], "institution_code" => $user_data['institution'], "Type" => "Title IV Institution Code", "description" => $user_data['seqDesc4']);
+        $input = array("password" => $user_data['password'], "last_name" => $user_data['lastName'], "first_name" => $user_data['firstName'], "email" => $user_data['email'], "institution_code" => $user_data['institution'], "Type" => "Title IV Institution Code", "description" => $user_data['seqDesc4'], "sequence" => $user_data['eSeq4']);
         
       }
       else {
-        $input = array("password" => $user_data['password'], "last_name" => $user_data['lastName'], "first_name" => $user_data['firstName'], "email" => $user_data['email'], "institution_code" => $user_data['institution'], "Type" => "Nasdaq Code", "description" => $user_data['seqDesc4']);
+        $input = array("password" => $user_data['password'], "last_name" => $user_data['lastName'], "first_name" => $user_data['firstName'], "email" => $user_data['email'], "institution_code" => $user_data['institution'], "Type" => "Nasdaq Code", "description" => $user_data['seqDesc4'], "sequence" => $user_data['eSeq4']);
       }
 
       #create a json file for sharing
@@ -311,11 +311,11 @@ session_start();
     #send 5
     if(isset($_POST['send5'])) {
       if($user_data['instType'] == "Academia") {
-        $input = array("password" => $user_data['password'], "last_name" => $user_data['lastName'], "first_name" => $user_data['firstName'], "email" => $user_data['email'], "institution_code" => $user_data['institution'], "Type" => "Title IV Institution Code", "description" => $user_data['seqDesc5']);
+        $input = array("password" => $user_data['password'], "last_name" => $user_data['lastName'], "first_name" => $user_data['firstName'], "email" => $user_data['email'], "institution_code" => $user_data['institution'], "Type" => "Title IV Institution Code", "description" => $user_data['seqDesc5'], "sequence" => $user_data['eSeq5']);
         
       }
       else {
-        $input = array("password" => $user_data['password'], "last_name" => $user_data['lastName'], "first_name" => $user_data['firstName'], "email" => $user_data['email'], "institution_code" => $user_data['institution'], "Type" => "Nasdaq Code", "description" => $user_data['seqDesc5']);
+        $input = array("password" => $user_data['password'], "last_name" => $user_data['lastName'], "first_name" => $user_data['firstName'], "email" => $user_data['email'], "institution_code" => $user_data['institution'], "Type" => "Nasdaq Code", "description" => $user_data['seqDesc5'], "sequence" => $user_data['eSeq5']);
       }
 
       #create a json file for sharing
