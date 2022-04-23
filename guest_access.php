@@ -6,11 +6,31 @@ include("connection.php");
 include("functions.php");
 
 $filename1 = $_FILES['key']['name'];
-$filename2 = $_FILES['data']['name'];
+$filename2 = $_FILES['datacode']['name'];
 
 $pyscript = 'C:\xampp\htdocs\dSign\dnadecrypt.py';
 
 $output = exec("dnadecrypt.py", $message);
+
+if($_SERVER['REQUEST_METHOD'] == "POST") {
+
+  if(isset($_POST['export'])) {
+
+    $fileExport = "My_Sequence_Info.txt";
+  if (file_exists($fileExport)) {
+      unlink($fileExport);
+      $fileExportID = fopen($fileExport, "x");
+  }
+  else {
+      $fileExportID = fopen($fileExport, "x");
+  }
+
+  fwrite($fileExportID, $message[0]);
+  fclose($fileExportID);
+  }
+
+  header("Location: guest_access.php");
+}
 
 ?>
 
@@ -71,25 +91,11 @@ $output = exec("dnadecrypt.py", $message);
         echo print($finalMessage);?>
       <p class="w3-text-grey"></p>
 
-      <button class="w3-button w3-red w3-padding-large w3-small w3-margin-top">Export</button>
+      <input type = "submit" value = "Export" id = "Export" name = "Export" class="w3-button w3-red w3-padding-large w3-small w3-margin-top">
       </fieldset>
     </div>
   </div>
 </div>
 
-<div class="w3-row-padding w3-padding-64 w3-container">
-  <div class="w3-content">
-    <div class="w3-onethird">
-      <h3>Encrypted Sequence</h3>
-      <fieldset>
-      <h5 class="w3-padding-16">Name: </h5>
-      <h5 class="w3-padding-16">Description:</h5>
-      <h5 class="w3-padding-16">Sequence:</h5><br>
-      <p class="w3-text-grey"></p>
 
-      <button class="w3-button w3-red w3-padding-large w3-small w3-margin-top">Export</button>
-      </fieldset>
-    </div>
-  </div>
-</div>
 
