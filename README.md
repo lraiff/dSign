@@ -21,19 +21,19 @@ Installation Instructions:
    <img width="340" alt="image" src="https://user-images.githubusercontent.com/89608971/163896310-c63bd2e9-5163-4623-a4e1-6cf1c9658d14.png">
   <img width="349" alt="image" src="https://user-images.githubusercontent.com/89608971/163896329-569dbd83-5536-4a63-92b7-25d3dac57806.png">
 4. Copy all the files in the cloned repo and place them a newly created folder with the path: ~/xampp/htdocs/dSign
-
+<br>
 
 5. Navigate to: http://localhost/dSign/
 
-*** If the installation doesn't work make sure you have python installed on your laptop and that you have the following modules installed***
-Necessary python modules:
-  Use pip to install the following libraries:
-  json
-  numpy
-  base64
-  cryptography
-  Fernet
-  hashes
-  PBKDF2HMAC
+*** If the installation doesn't work make sure you have python installed on your laptop and that you have the following modules installed***<br>
+Necessary python modules:<br>
+  Use pip to install the following libraries:<br>
+  json<br>
+  numpy<br>
+  base64<br>
+  cryptography<br>
+  Fernet<br>
+  hashes<br>
+  PBKDF2HMAC<br>
   wrap
 
