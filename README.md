@@ -3,7 +3,7 @@ Final Project for EC552
 
 dSign is locally run software for designing an encrypted DNA signature. The software allows for secure sharing and allows you to place your signature in any sequence you input. The software is designed with the intention of being open source and of accessing a remote database. However, due to the developers' limited resources we currently are not hosting a remote database. So, utilize dSign's features follow to Installation Instructions to run the software locally.
 
-Installation Instructions:
+## Installation Instructions:
 
 1. clone the reponsitory on your machine:
 
@@ -36,4 +36,15 @@ Necessary python modules:<br>
   hashes<br>
   PBKDF2HMAC<br>
   wrap
+  
+## How the encryption works
+
+### Signature encryption
+
+### Sequence encryption/ Sending to guest
+
+## Using the web-page software
+
+1. Register as a user on the software - username can be anything but password must be 10 any characters long. (E.g. @rTW1nR56g or RTerTFWoOP)
+2. 
 
