@@ -23,7 +23,7 @@ session_start();
     if(isset($_POST['send1'])) {
 
       if($user_data['instType'] == "Academia") {
-        $input = array("password" => $user_data['password'], "last_name" => $user_data['lastName'], "first_name" => $user_data['firstName'], "email" => $user_data['email'], "institution_code" => $user_data['institution'], "Type" => "Title IV Institution Code", "description" => $user_data['seqDesc1']), "sequence" => $user_data['eSeq1']);
+        $input = array("password" => $user_data['password'], "last_name" => $user_data['lastName'], "first_name" => $user_data['firstName'], "email" => $user_data['email'], "institution_code" => $user_data['institution'], "Type" => "Title IV Institution Code", "description" => $user_data['seqDesc1'], "sequence" => $user_data['eSeq1']);
         
       }
       else {
@@ -167,7 +167,7 @@ session_start();
     #send 3
     if(isset($_POST['send3'])) {
       if($user_data['instType'] == "Academia") {
-        $input = array("password" => $user_data['password'], "last_name" => $user_data['lastName'], "first_name" => $user_data['firstName'], "email" => $user_data['email'], "institution_code" => $user_data['institution'], "Type" => "Title IV Institution Code", "description" => $user_data['seqDesc3']), "sequence" => $user_data['eSeq3'];
+        $input = array("password" => $user_data['password'], "last_name" => $user_data['lastName'], "first_name" => $user_data['firstName'], "email" => $user_data['email'], "institution_code" => $user_data['institution'], "Type" => "Title IV Institution Code", "description" => $user_data['seqDesc3'], "sequence" => $user_data['eSeq3'];
         
       }
       else {
@@ -379,7 +379,7 @@ session_start();
     }
 
     #button to input a new sequence
-    if(isset($_POST['seq3'])) {
+    if(isset($_POST['seq3']) && $user_data['encryptedSignature'] != '') {
 
       header("Location: sequence_input.php");
     }

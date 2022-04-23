@@ -24,7 +24,6 @@ def reversibleplacing( DNA, signature):
     #the signature is ordered in different randomized locations in the original sequence
     num=[] #locations for each character in the signature 
     stringDNA= jsontostringDNA(DNA)
-    signature= signature
     M= len(stringDNA)
     N= len(signature)
     final= list(stringDNA)
