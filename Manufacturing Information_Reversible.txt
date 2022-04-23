@@ -1,4 +1,5 @@
-The reversible signature uses a type-II restriction enzyme (HindIII) that allows you to send the DNA sequence straight to manufacturing. In order to remove the signature, please do the following: 
+The reversible signature uses a type-II restriction enzyme (HindIII) that allows you to send the DNA sequence straight to manufacturing. 
+In order to remove the signature, please do the following: 
 Ensure 8-20 units/µl concentration in DNA synthesis
 Ensure the cofactor Mg2+ is present 
 
