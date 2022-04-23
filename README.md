@@ -25,4 +25,15 @@ Installation Instructions:
 
 5. Navigate to: http://localhost/dSign/
 
+*** If the installation doesn't work make sure you have python installed on your laptop and that you have the following modules installed***
+Necessary python modules:
+  Use pip to install the following libraries:
+  json
+  numpy
+  base64
+  cryptography
+  Fernet
+  hashes
+  PBKDF2HMAC
+  wrap
 
