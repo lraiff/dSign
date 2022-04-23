@@ -98,10 +98,10 @@
   <legend><strong>Location Information: </strong></legend>
   <input type="radio" id="academia" name="instType" value="Academia">
   <label for="academia"> Academia/University</label>
-  <p1><a href="https://finaid.org/fafsa/tiv/"> Click here to find your School Code </a> <br></p1>
+  <p1><a href="https://finaid.org/fafsa/tiv/" target = "_blank"> Click here to find your School Code </a> <br></p1>
   <input type="radio" id="industry" name="instType" value="Industry">
   <label for="industry"> Industry/Company</label>
-  <p2><a href="https://stocks.tradingcharts.com/stocks/symbols/s">Click here to find Nasdaq Code </a><br></p2><br>
+  <p2><a href="https://stocks.tradingcharts.com/stocks/symbols/s" target = "_blank">Click here to find Nasdaq Code </a><br></p2><br>
   
   <label for="institu">Code for Institute Name:</label><br>
   <input type="text" id="institu" name="institution" required="yes" maxlength="10"><br><br>
