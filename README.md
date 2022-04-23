@@ -36,15 +36,14 @@ Necessary python modules:<br>
   hashes<br>
   PBKDF2HMAC<br>
   wrap
-  
-## How the encryption works
-
-### Signature encryption
-
-### Sequence encryption/ Sending to guest
 
 ## Using the web-page software
 
 1. Register as a user on the software - username can be anything but password must be 10 any characters long. (E.g. @rTW1nR56g or RTerTFWoOP)
-2. 
+
+
+## Contributions
+
+### YouTube Demo link
+
 
