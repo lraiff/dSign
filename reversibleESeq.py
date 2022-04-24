@@ -24,12 +24,13 @@ def reversibleplacing( DNA, signature):
     #the signature is ordered in different randomized locations in the original sequence
     num=[] #locations for each character in the signature 
     stringDNA= jsontostringDNA(DNA)
+    signature= signature
     M= len(stringDNA)
     N= len(signature)
     final= list(stringDNA)
     for i in range(0,N):
         num.append(int(random.randint(1,M))) #find the randomized location
-        while num[i] in num[0: i]: 
+        while num[i] in num[0:i]: 
             num.pop(i)
             num.append(int(random.randint(1,M)))
             if num[i] not in num[0: i]:  #it would not generate the same position 
