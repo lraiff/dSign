@@ -28,12 +28,12 @@ def reversibleplacing( DNA, signature):
     M= len(stringDNA)
     N= len(signature)
     final= list(stringDNA)
-    for i in range(0,N-1):
+    for i in range(0,N):
         num.append(int(random.randint(1,M))) #find the randomized location
-        while num[i] in num[0: i-1]: 
-            num.remove(num[i])
+        while num[i] in num[0: i]: 
+            num.pop(i)
             num.append(int(random.randint(1,M)))
-            if num[i] not in num[0: i-1]:  #it would not generate the same position 
+            if num[i] not in num[0: i]:  #it would not generate the same position 
                 break
         final.insert(num[i], signature[i])
         M += 1 #increase the total length of the sequence as each character of the signature is added in
