@@ -24,16 +24,29 @@ def reversibleplacing( DNA, signature):
     #the signature is ordered in different randomized locations in the original sequence
     num=[] #locations for each character in the signature 
     stringDNA= jsontostringDNA(DNA)
+    print(stringDNA)
     signature= signature
     M= len(stringDNA)
     N= len(signature)
     final= list(stringDNA)
+    largest_div= 0 
+    for j in range(2, M): 
+        # find the largest divisor that is bigger than 2
+        if M % j == 0:
+            largest_div= j
     for i in range(0,N):
-        num.append(int(random.randint(1,M))) #find the randomized location
-        while num[i] in num[0:i]: 
+        val= int(random.randint(0,int(M/largest_div))) 
+        # so that there will be a larger spread in the actual values 
+        num.append(val) #find the randomized location
+        maxnum= max(num)
+        if not num: 
+            maxnum= 0
+        while num[i] in num[0: i] or num[i] <= maxnum : 
+            #check if the newly generated number is inside the locations vector or if is less than the largest numbers in the list 
             num.pop(i)
-            num.append(int(random.randint(1,M)))
-            if num[i] not in num[0: i]:  #it would not generate the same position 
+            indnum= maxnum + 1; 
+            num.append(int(random.randint(indnum,M)))
+            if num[i] not in num[0: i-1]:  #it would not generate the same position 
                 break
         final.insert(num[i], signature[i])
         M += 1 #increase the total length of the sequence as each character of the signature is added in
