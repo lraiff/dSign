@@ -39,10 +39,14 @@ Necessary python modules:<br>
 
 ## Using the Webpage Software
 
-1. Register as a user on the software - username can be anything but password must be 10 any characters long. (E.g. @rTW1nR56g or RTerTFWoOP)
-2. Login with your login details
-3. Click "ADD SIGNATURE" to enter personal information for composing the unique signature. This encrypted signature will be displayed 
-
+1. Register as a user on the software - username can be anything but password must be 10 characters long. (E.g. @rTW1nR56g or RTerTFWoOP)
+2. Login with your login details.
+3. Click "Signature" in Navigation bar to enter personal information for composing the unique signature. This encrypted signature will be displayed on the Profile. 
+4. Once you see the signature displayed, add new sequences using "Add Sequence" button.
+5. On your Profile page, View, Send, Export, or Delete your sequences using the respective buttons. 
+6. If Exporting, the JSON file will be available as seq#.json in your local "project" folder.
+7. If Sending, the datacode.key and public.key files will be in your local "project" folder. To have guests access the sequence, send them both files.
+8. If you are a guest, upload both datacode.key and public.key files to "Guest Login" page accessed on Home or Guest at Navigation bar. 
 
 ## Contributions
 
