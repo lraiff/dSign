@@ -403,27 +403,90 @@ session_start();
     body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
     .fa-anchor,.fa-coffee {font-size:200px}
+
+     body {
+		background-image: url('https://us.123rf.com/450wm/arinashe/arinashe1904/arinashe190400323/123496911-genome-sequencing-pattern-in-bright-colors-background-in-doodle-style-dna-genome-scissors-test-tube-.jpg?ver=6');
+    }
+
+ .hide {
+ display: none
+ }
+
+ .card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: auto;
+  border-radius: 8px;
+  color: #FFF;
+  background-color: #FFF !important;
+  margin-left:5%;
+  margin-right:5%;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+  padding: 15px 15px;
+  color: #000;
+}
+
+.tooltip {
+  color: #000;
+  margin-left:5%;
+  display: inline-block;
+  position:relative;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 200px;
+  background-color: #F9560F;
+  color: #FFF;
+  text-align: center;
+  border-radius: 3px;
+  padding: 10px 10px;
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  left: 110%;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
     </style>
   </head>
 <body>
   <!-- Navbar -->
 <div class="w3-top">
-  <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+<div class="w3-bar w3-red w3-card w3-left-align w3-large">
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="http://localhost/dSign/" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
-    <a href="https://www.dsign.w3spaces.com/index.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">About</a>
-    <a href="http://localhost/dSign/signatureInput.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Signature</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">FAQ</a>
-    <a href="http://localhost/dSign/logout.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Logout</a>
-  </div>
+    <a href="http://localhost/dSign/index.php" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
 
-  <!-- Navbar on small screens -->
-  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
-    <a href="https://www.dsign.w3spaces.com/index.html" class="w3-bar-item w3-button w3-padding-large">About</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">Profile</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">Sequence</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">FAQ</a>
-  </div>
+    <?php if( isset($_SESSION['loggedIn'])) { ?>
+    <a href="<?php echo "http://localhost/dSign/user_profile.php"; ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Profile</a>
+    <?php } else { ?>
+    <a href="<?php echo "http://localhost/dSign/login.php"; ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Profile</a>
+    <?php } ?>
+
+    <?php if( isset($_SESSION['loggedIn'])) { ?>
+    <a href="<?php echo "http://localhost/dSign/signatureInput.php"; ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Signature</a>
+    <?php } else { ?>
+    <a href="<?php echo "http://localhost/dSign/login.php"; ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Signature</a>
+    <?php } ?>
+
+    <a href="http://localhost/dSign/FAQ.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">FAQ</a>
+
+    <?php if( isset($_SESSION['loggedIn'])) { ?>
+    <a href="<?php echo "http://localhost/dSign/logout.php"; ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Logout</a>
+    <?php } else { ?>
+    <a href="<?php echo "http://localhost/dSign/index.php"; ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Logout</a>
+    <?php } ?>
+    
+    <a href="http://localhost/dSign/guestLogin.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Guest</a>
+</div>
 </div>
 
 <!-- Header -->
@@ -437,12 +500,12 @@ session_start();
   <input type = "submit" class="w3-button w3-black w3-padding-large w3-small w3-margin-top" name = 'seq3' value = "Add/Change Sequence Here">
 </header>
 <br>
+<br>
 
 
 <!-- First Grid -->
-<div class="w3-row-padding w3-padding-64 w3-container">
-  <div class="w3-content">
-    <div class="w3-onethird">
+<div class="card">
+  <div class="container">
       <h3>Sequence 1</h3>
       <fieldset>
       <h5 class="w3-padding-16">Name: </h5>
@@ -462,21 +525,25 @@ session_start();
         echo $user_data["eSeq1"];
       ?>
       <p class="w3-text-grey"></p>
-
+      <hr>
       <input type = "submit" name = "send1" class="w3-button w3-blue w3-padding-large w3-small w3-margin-top" value = "Send" />
       <input type = "submit" name = "export1" class="w3-button w3-red w3-padding-large w3-small w3-margin-top" value = "Export" />
-      <input type = "submit" name = "delete1" class="w3-button w3-black w3-padding-large w3-small w3-margin-top" onclick="alert('Are you sure you want to delete?');" value = "Delete">      
+      <input type = "submit" name = "delete1" class="w3-button w3-black w3-padding-large w3-small w3-margin-top" 
+        onclick="alert('Are you sure you want to delete?');" value = "Delete">
+      <div class="tooltip">File Location?
+      <span class="tooltiptext">Look for the files in project folder as public.key and datacode.key (for SEND) and as seq1 (for EXPORT)!</span>
+      </div>   
       <br>
       <br>
       </fieldset>
     </div>
   </div>
-</div>
+  <br>
+  <br>
 
 <!-- Second Grid -->
-<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
-  <div class="w3-content">
-    <div class="w3-onethird">
+<div class="card">
+  <div class="container">
       <h3>Sequence 2</h3>
       <fieldset>
       <h5 class="w3-padding-16">Name:</h5>
@@ -498,20 +565,24 @@ session_start();
 
       <p class="w3-text-grey"></p>
 
-
+      <hr>
       <input type = "submit" name = "send2" class="w3-button w3-blue w3-padding-large w3-small w3-margin-top" value = "Send" />
       <input type = "submit" name = "export2" class="w3-button w3-red w3-padding-large w3-small w3-margin-top" value = "Export" />
-      <input type = "submit" name = "delete2" class="w3-button w3-black w3-padding-large w3-small w3-margin-top" onclick="alert('Are you sure you want to delete?');" value = "Delete"> 
+      <input type = "submit" name = "delete2" class="w3-button w3-black w3-padding-large w3-small w3-margin-top" 
+        onclick="alert('Are you sure you want to delete?');" value = "Delete"> 
+      <div class="tooltip">File Location?
+      <span class="tooltiptext">Look for the files in project folder as public.key and datacode.key (for SEND) and as seq2 (for EXPORT)!</span>
+      </div> 
       <br>
       <br>
       </fieldset>
     </div>
   </div>
-</div>
+  <br>
+  <br>
 
-<div class="w3-row-padding w3-padding-64 w3-container">
-  <div class="w3-content">
-    <div class="w3-onethird">
+<div class="card">
+  <div class="container">
       <h3>Sequence 3</h3>
       <fieldset>
       <h5 class="w3-padding-16">Name: </h5>
@@ -532,20 +603,24 @@ session_start();
       ?>
       <p class="w3-text-grey"></p>
 
-
+      <hr>
       <input type = "submit" name = "send3" class="w3-button w3-blue w3-padding-large w3-small w3-margin-top" value = "Send" />
       <input type = "submit" name = "export3" class="w3-button w3-red w3-padding-large w3-small w3-margin-top" value = "Export" />
-      <input type = "submit" name = "delete3" class="w3-button w3-black w3-padding-large w3-small w3-margin-top" onclick="alert('Are you sure you want to delete?');" value = "Delete"> 
+      <input type = "submit" name = "delete3" class="w3-button w3-black w3-padding-large w3-small w3-margin-top" 
+        onclick="alert('Are you sure you want to delete?');" value = "Delete"> 
+      <div class="tooltip">File Location?
+      <span class="tooltiptext">Look for the files in project folder as public.key and datacode.key (for SEND) and as seq3 (for EXPORT)!</span>
+      </div> 
       <br>
       <br>
       </fieldset>
     </div>
   </div>
-</div>
+  <br>
+  <br>
 
-<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
-  <div class="w3-content">
-    <div class="w3-onethird">
+<div class="card">
+  <div class="container">
       <h3>Sequence 4</h3>
       <fieldset>
       <h5 class="w3-padding-16">Name:</h5>
@@ -568,20 +643,24 @@ session_start();
       <p class="w3-text-grey"></p>
 
 
-
+      <hr>
       <input type = "submit" name = "send4" class="w3-button w3-blue w3-padding-large w3-small w3-margin-top" value = "Send" />
       <input type = "submit" name = "export4" class="w3-button w3-red w3-padding-large w3-small w3-margin-top" value = "Export" />
-      <input type = "submit" name = "delete4" class="w3-button w3-black w3-padding-large w3-small w3-margin-top" onclick="alert('Are you sure you want to delete?');" value = "Delete"> 
+      <input type = "submit" name = "delete4" class="w3-button w3-black w3-padding-large w3-small w3-margin-top" 
+        onclick="alert('Are you sure you want to delete?');" value = "Delete"> 
+      <div class="tooltip">File Location?
+      <span class="tooltiptext">Look for the files in project folder as public.key and datacode.key (for SEND) and as seq4 (for EXPORT)!</span>
+      </div> 
       <br>
       <br>
       </fieldset>
     </div>
   </div>
-</div>
+<br>
+<br>
 
-<div class="w3-row-padding w3-padding-64 w3-container">
-  <div class="w3-content">
-    <div class="w3-onethird">
+<div class="card">
+  <div class="container">
       <h3>Sequence 5</h3>
       <fieldset>
       <h5 class="w3-padding-16">Name: </h5>
@@ -602,17 +681,22 @@ session_start();
       ?>
       <p class="w3-text-grey"></p>
 
-
+      <hr>
       <input type = "submit" name = "send5" class="w3-button w3-blue w3-padding-large w3-small w3-margin-top" value = "Send" />
       <input type = "submit" name = "export5" class="w3-button w3-red w3-padding-large w3-small w3-margin-top" value = "Export" />
-      <input type = "submit" name = "delete5" class="w3-button w3-black w3-padding-large w3-small w3-margin-top" onclick="alert('Are you sure you want to delete?');" value = "Delete"> 
+      <input type = "submit" name = "delete5" class="w3-button w3-black w3-padding-large w3-small w3-margin-top" 
+        onclick="alert('Are you sure you want to delete?');" value = "Delete"> 
+      <div class="tooltip">File Location?
+      <span class="tooltiptext">Look for the files in project folder as public.key and datacode.key (for SEND) and as seq5 (for EXPORT)!</span>
+      </div> 
       <br>
       <br>
       </fieldset>
     </div>
   </div>
-</div>
       </form>
+      <br>
+      <br>
 
 </body>
 </html>
