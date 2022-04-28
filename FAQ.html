@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Profile</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+    .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+    .fa-anchor,.fa-coffee {font-size:200px}
+    body {
+		background-image: url('https://us.123rf.com/450wm/arinashe/arinashe1904/arinashe190400323/123496911-genome-sequencing-pattern-in-bright-colors-background-in-doodle-style-dna-genome-scissors-test-tube-.jpg?ver=6');
+    }
+
+    .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 85%;
+}
+.collapsible {
+  background-color: #3FBBD7;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 20px;
+}
+
+.active, .collapsible:hover {
+  background-color: #FF4229;
+}
+
+.collapsible:after {
+  content: '\002B';
+  color: white;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #FCF5F3;
+  font-size:18px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: auto;
+  border-radius: 3px;
+  color: #FFF;
+  background-color: #F6FFFF !important;
+  margin-left:2%;
+  margin-right:2%;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+  padding: 8px 8px;
+  color: #000;
+}
+    </style>
+  </head>
+<body>
+  <!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="http://localhost/dSign/index.php" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+    <a href="http://localhost/dSign/user_profile.php" class="w3-bar-item w3-button w3-padding-large w3-hover-white">Profile</a>
+    <a href="http://localhost/dSign/signatureInput.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Signature</a>
+    <a href="http://localhost/dSign/FAQ.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">FAQ</a>
+    <a href="http://localhost/dSign/logout.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Logout</a>
+    <a href="http://localhost/dSign/guestLogin.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Guest</a>
+</div>
+</div>
+
+<!-- Header -->
+<header class="w3-container w3-red w3-center" style="padding:42px 16px">
+  <p class="w3-xxlarge">Frequently Asked Questions</p>
+  <hr>
+  <p class="w3-large">We'll answer some burning questions about dSign!</p>
+</header>
+<br>
+
+<div class="card">
+<div class="container">
+<button class="collapsible"><strong>What is dSign?</strong></button>
+<div class="content">
+  <p>dSign is a user-input driven DNA encryption web-based platform that allows users to create their DNA signatures based on their Name, Institution, and Country.
+    We use the information to generate a unique DNA signature for the user, which is then dispersed in the encrypted DNA sequence when the user adds a sequence to their profile.
+    <br>
+    <br>
+    The information is transmitted to through our encryption back-end, which generates the encrypted signature and sequence and combines them according to the method of encryption.
+    The user is also able to share their sequences securely through our access key system, which generates key files when user wants to send the files to others. 
+    <br>
+    <br>
+        <img src="https://i.imgur.com/ihsnyTI.png" width="500" height="auto" class="center">
+  </p>
+</div>
+</div>
+</div>
+<br>
+
+<div class="card">
+<div class="container">
+<button class="collapsible"><strong>dSign's long history</strong></button>
+<div class="content">
+  <p>
+    <img src="https://hga.com/wp-content/uploads/2018/10/Boston-University-Engineering-Product-Innovation-Center-exterior.jpg" width="500" height="auto" class="center">
+    <br>
+    The idea for dSign was conceived in March of 2022 while brainstorming for a class project idea at Boston University.
+    The founders, Laura, Aurelia, Zenia, and Sally decided to approach the project from a biosecurity standpoint and decided on a DNA encryption platform that would encode unique signatures within the DNA. 
+    <br>
+    <br>
+    Laura was the fearless leader who fought with database and php language to connect all the moving parts in the back-end of dSign, all the while she organized numerous team meetings.
+    <br>
+    <br>
+    Aurelia enthusiastically took on working out the meat of dSign, our encryption algorithm, and somehow succeeded in enabling all the features that we aimed for. 
+    <br>
+    <br>
+    Zenia organized all our deliverables beautifully (of which there were many) and took up the slack in all the miscellaneous tasks that popped up like whack-a-mole.
+    <br>
+    <br>
+    Sally browsed many html and css help sites to pull together a functional face of dSign, with occasional help from Laura. 
+    <br>
+    <br>
+    And after long months of March and April, the platform was completed and continues until today. \o/
+  </p>
+</div>
+</div>
+</div>
+<br>
+
+<div class="card">
+<div class="container">
+<button class="collapsible"><strong>How to Use dSign?</strong></button>
+<div class="content">
+  <p>Step 1: Create a user profile using our registration page!
+    <br>
+    <br>
+    Step 2: From the Nav bar, click create signature to make your own unique DNA signature.
+    <br>
+    <br>
+    Step 3: From the Profile page, click Add Sequence button to add your sequences. 
+    <br>
+    Note that if you change your signature after adding a sequence, you must input the sequences again to update the signatures within encrypted sequences!
+    <br>
+    <br>
+    Step 4: View, Export, Send, or Delete your added sequences from the Profile page.
+    <br>
+    <br>
+    Please see our other FAQ questions on how to use the Send and Export options!
+    <br>
+  </p>
+</div>
+</div>
+</div>
+
+<br>
+<div class="card">
+<div class="container">
+<button class="collapsible"><strong>Reversible vs. Irreversible encryption?</strong></button>
+<div class="content">
+  <p>
+    <strong>Reversible:</strong> This encryption method should be used for computational work or other works not involving physical manufacturing of the sequence. 
+    When choosing the reversible encryption method, parts of the signature are dispersed inside the sequence based on locations determined during the encryption.
+    Because signatures are not recognizable in its entirety, this encryption method can only be decrypted to the original method using our decryption option at dSign. 
+    <br>
+    <br>
+    <strong>Irreversible: </strong> This encryption method should be used for manufacturing work!
+    When choosing the irreversible option, the signature remains whole while being embedded at a user-input basepair location in the sequence. 
+    Both ends of the signature is connected to sticky ends of Type II restriction enzyme, allowing for the signature to cut away from the final product of the sequence. 
+    <br>
+    <br>
+  <img src="https://i.imgur.com/OYV69FH.png" width="500" height="auto" class="center">
+  </p>
+</div>
+</div>
+</div>
+<br>
+
+<div class="card">
+<div class="container">
+<button class="collapsible"><strong>Where are the SEND and EXPORT files?</strong></button>
+<div class="content">
+  <p>
+    After clicking SEND or EXPORT, the respective files exported can be found in your local directory's "project" folder.
+    Use Send for sending your sequence files securely to others so that the guest then can access the sequence using our Guest tab.
+    <br>
+    <br>
+    For Send: the files are named datacode.key and public.key
+    <br>
+    <br>
+    For Export: the file is named seq# - where the # stands for which of the 5 sequences you exported.
+  </p>
+</div>
+</div>
+</div>
+<br>
+
+<div class="card">
+<div class="container">
+<button class="collapsible"><strong>How can guests access the sequences?</strong></button>
+<div class="content">
+  <p>Guests are able to access a user's sequence without making a dSign account using the Guest features.
+    From either the Nav bar or Home page, click Guest to be directed to a file upload page. 
+    <br>
+    <br>
+    Upload the datacode.key and public.key received from a dSign user to access the sequence that is sent to you!
+    <br>
+    <br>
+    Our secure-send feature allows the sequences to be sent without accessing our database, by generating key files that hold the sequence information securely.
+    Our key is generated in the overall steps described below.
+    <br>
+    <br>
+    <img src="https://i.imgur.com/CLVaKvz.png" width="500" height="auto" class="center">
+  </p>
+</div>
+</div>
+</div>
+<br>
+
+<div class="card">
+<div class="container">
+<button class="collapsible"><strong>What limitations are (still) present?</strong></button>
+<div class="content">
+  <p> Unfornately, as great as dSign currently is, there are still some limitations present. 
+    Due to financial constraints, we were unable to provide a bigger database to hold all the information and 
+    currently, our users can only upload 5 sequences that are less than 255bps long. 
+    Additionally, the platform is currently hosted locally (as you might be aware!) due to lack of funds to host globally. 
+    <br>
+    <br>
+    However, each user may create multiple profiles to bypass the issue of 5 max sequences per account. 
+  <br>
+  <br>
+    <img src="https://i.imgur.com/50sAES6.png" width="500" height="auto" class="center">
+    </p>
+</div>
+</div>
+</div>
+<br>
+<br>
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    } 
+  });
+}
+</script>
+
+
+</body>
+</html>
