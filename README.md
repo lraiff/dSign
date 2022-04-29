@@ -20,7 +20,7 @@ dSign is locally run software for designing an encrypted DNA signature. This web
    <img width="529" alt="image" src="https://user-images.githubusercontent.com/89608971/163896284-f5345c3e-d1b5-4e9f-aaf9-65486f384f47.png">
    <img width="340" alt="image" src="https://user-images.githubusercontent.com/89608971/163896310-c63bd2e9-5163-4623-a4e1-6cf1c9658d14.png">
   <img width="349" alt="image" src="https://user-images.githubusercontent.com/89608971/163896329-569dbd83-5536-4a63-92b7-25d3dac57806.png">
-4. Copy all the files in the cloned repo and place them a newly created folder with the path: ~/xampp/htdocs/dSign
+4. Copy all the files in the code folder of the cloned repo and place them a newly created folder with the path: ~/xampp/htdocs/dSign
 <br>
 
 5. Navigate to: http://localhost/dSign/
